@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor-fundo: #1b1e2d;
+}
+
+body{
+    background-color: var(--cor-fundo);
+}
+
+.imagem-fundo{
+    position: absolute;
+    top: 0;
+    background-image: url(imgs/night_wallpaper.webp);
+    filter: brightness(0.3);
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+}
+
+.barra{
+    position: relative;
+    background-color: black;
+    height: 15vh;
+    border-radius: 60px;
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+}
+
+.barra img{
+    margin-left: 20px;
+}
