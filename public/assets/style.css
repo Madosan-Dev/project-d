@@ -2,10 +2,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 :root{
     --cor-fundo: #1b1e2d;
+    --cor-botao: #3b3e4f;
 }
 
 body{
@@ -28,10 +30,40 @@ body{
     height: 15vh;
     border-radius: 60px;
     display: flex;
+    align-items: center;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .barra img{
     margin-left: 20px;
+    height: 140%;
+}
+
+.btn-head{
+    display: flex;
+    align-items: center;
+}
+.btn-head a{
+    height: 5vh;
+    width: 10vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-botao);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 120%;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.btn-head a:hover{
+    background-color: white;
+    color: var(--cor-botao);
+
 }
