@@ -1,8 +1,15 @@
+@font-face {
+    font-family: racing;
+    src: url(fonts/Racing_Sans_One/RacingSansOne-Regular.ttf);
+}
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: racing;
+    overflow-x: hidden;
 }
 
 :root{
@@ -13,16 +20,34 @@
 body{
     background-color: var(--cor-fundo);
 }
+.video-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .imagem-fundo{
     position: absolute;
     top: 0;
-    background-image: url(imgs/night_wallpaper.webp);
-    filter: brightness(0.3);
-    background-size: cover;
-    height: 90vh;
-    width: 100%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+    z-index: -1;
 }
+
+.imagem-fundo video{
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    position: absolute;
+    filter: brightness(0.5);
+    top: 0; 
+    left: 0;
+    }
 
 .barra{
     position: relative;
@@ -35,11 +60,12 @@ body{
     padding: 20px;
     flex-direction: row;
     justify-content: space-between;
+    overflow-y: hidden;
 }
 
 .barra img{
     margin-left: 20px;
-    height: 140%;
+    height: 120px;
 }
 
 .btn-head{
@@ -54,9 +80,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: var(--cor-botao);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
-    font-weight: bold;
     font-size: 120%;
     margin: 10px;
     border-radius: 20px;
@@ -66,4 +90,45 @@ body{
     background-color: white;
     color: var(--cor-botao);
 
+}
+
+.container-main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-main h1{
+    margin-bottom: 10%;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    background-color: var(--cor-botao);
+    font-size: 300px; opacity: 0.03; color: #ffffff; white-space: nowrap;
+}
+.dk-section{
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+}
+.dk-section img{
+    margin-left: 5%;
+    border-radius: 20px;
+    filter: brightness(0.5);
+}
+.textos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.textos p{
+    color: white;
+    font-size: 20px;
+    width: 500px;
+    height: 200px;
+    margin: 20px;
+}
+.textos h2{
+    color: white;
+    margin-bottom: 20%;
 }
