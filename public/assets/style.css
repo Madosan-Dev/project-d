@@ -13,12 +13,13 @@
 }
 
 :root{
+    --cor-fundo-preto: #121212;
     --cor-fundo: #1b1e2d;
     --cor-botao: #3b3e4f;
 }
 
 body{
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-fundo-preto);
 }
 .video-container{
     width: 100vw;
@@ -101,9 +102,10 @@ body{
     margin-bottom: 10%;
     font-size: 50px;
     text-align: center;
-    color: white;
+    color: wheat;
     background-color: var(--cor-botao);
-    font-size: 300px; opacity: 0.03; color: #ffffff; white-space: nowrap;
+    font-size: 200px;
+     white-space: nowrap;
 }
 .dk-section{
     display: flex;
@@ -121,14 +123,27 @@ body{
     justify-content: center;
     text-align: center;
 }
+.takumi-section{
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+}
+
+.takumi-section img{
+    margin-left: 5%;
+    border-radius: 20px;
+    filter: brightness(0.5);
+}
+
 .textos p{
-    color: white;
+    color: wheat;
     font-size: 20px;
     width: 500px;
     height: 200px;
     margin: 20px;
 }
 .textos h2{
-    color: white;
+    color: wheat;
+    font-size: 200%;
     margin-bottom: 20%;
 }
