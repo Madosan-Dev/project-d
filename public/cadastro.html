@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project D / Cadastro</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/imgs/Project_d_icon.png" type="image/x-icon">
+    <script src="js/validações.js"></script>
+</head>
+<body>
+    <main class="cadastro">
+        <section class="container-cadastro">
+
+             <a href="index.html">
+            <img src="assets/imgs/Project_d_logo.png" alt="Logo do Project D" id="logo">
+            </a>
+            <div class="campo_foto" id="div_foto">
+                
+            </div>
+            <div id="container_campos">
+
+                <label for="url_foto">Link da Foto</label>
+                <div class="campo url">
+                    <img src="assets/icones/galeria-de-fotos.png" alt="">
+                    <input type="text" id="url_foto" oninput="verificarFoto()" placeholder="Cole o Link da foto aqui">
+                </div>
+                <label for="ipt_nome">Nome de Usuario</label>
+                <div class="campo" >
+                    <img src="assets/icones/do-utilizador.png" alt="">
+                    <input type="text" id="ipt_nome" placeholder="Digite seu Nome">
+                </div>
+                <label for="ipt_email">Email</label>
+                <div class="campo" >
+                    <img src="assets/icones/o-email.png" alt="">
+                    <input type="text"id="ipt_email" placeholder="Digite seu Email">
+                </div>
+                <label for="ipt_senha">Senha</label>
+                <div class="campo">
+                    <img src="assets/icones/trancar.png" alt="">
+                    <input type="password" id="ipt_senha" placeholder="Digite sua Senha">
+                </div>
+                <label for="ipt_confirmar_senha">Confirmar senha</label>
+                <div class="campo">
+                    <img src="assets/icones/trancar.png" alt="">
+                    <input type="password"id="ipt_confirmar_senha" placeholder="Confirmar senha">
+                </div>
+                
+            </div>
+            <div id="div_mensagem">
+
+            </div>
+
+            <button onclick="cadastrar()">Cadastrar</button>
+        </section>
+    </main>
+</body>
+</html>
