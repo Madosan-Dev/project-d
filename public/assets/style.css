@@ -19,6 +19,7 @@
     --cor-botao: #3b3e4f;
 }
 
+/* Estilizações do Index*/
 body{
     background-color: var(--cor-fundo-preto);
 }
@@ -160,6 +161,8 @@ body{
     height: 10vh;
 
 }
+
+/* Estilização do Cadastro */
 .cadastro{
     background-image: url(imgs/wallpaper_wataru_takumi.webp);
     background-size: cover;
@@ -333,6 +336,61 @@ body{
     background-color: rgb(2, 211, 2);
 }
 
+/* Estilização do Login */
+.container-login{
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 50%;
+    padding: 10px;
+}
+.container-login label{
+    color: wheat;
+    font-size: 18px;
+}
+
+.container-login button{
+    font-size: 20px;
+    margin-top: 50px;
+    height: 5vh;
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 1px solid wheat;
+    background-color: var(--cor-botao);
+    color: wheat;
+}
+
+.container-login button:hover{
+    background-color: wheat;
+    color: var(--cor-botao);
+}
 .login{
-    background-image: url(imgs/ryosuke_vs_takumi.jpeg);
+    background-image: url(imgs/wallpaper_trueno.jpg);
+    background-size: cover;
+}
+
+/* Estilizações do menu lateral Dashboard */
+
+.container-menu{
+    background-color: black;
+    border-radius: 0px 20px 20px  0px;
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-head.menu{
+    flex-direction: column;
+}
+
+.btn-head.menu a.active{
+    background-color: white;
+    color: var(--cor-botao);
 }

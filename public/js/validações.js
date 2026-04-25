@@ -164,3 +164,35 @@ function cadastrar(){
     }
 
 }
+
+function logar(){
+    let email = ipt_email.value;
+    let senha = ipt_senha.value;
+
+    if(email == ''){
+        campo_email.classList.add('shake');
+    }
+    if(senha == ''){
+        campo_senha.classList.add('shake');
+    }
+
+    if(email == '' ||
+       senha == '' 
+    ){
+        div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
+        return false;
+    }
+}
+
+function verificarDigitarLog(){
+    let email = ipt_email.value;
+    let senha = ipt_senha.value;
+
+    if(email != ''){
+        campo_email.classList.remove('shake');
+    }
+    if(senha != ''){
+        campo_senha.classList.remove('shake');
+    }
+
+}

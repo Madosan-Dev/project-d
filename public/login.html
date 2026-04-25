@@ -6,10 +6,37 @@
     <title>Project D / Login</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="shortcut icon" href="assets/imgs/Project_d_icon.png" type="image/x-icon">
+    <script src="js/validações.js"></script>
 </head>
 <body>
     <main class="login">
+        <section class="container-login">
 
+            <a href="index.html">
+                <img src="assets/imgs/Project_d_logo.png" alt="Logo do Project D" id="logo">
+            </a>
+            
+        <div id="container_campos">
+            
+                <label for="ipt_email">Email</label>
+                <div class="campo" id="campo_email">
+                    <img src="assets/icones/o-email.png" alt="">
+                    <input type="text"id="ipt_email" placeholder="Digite seu Email" oninput="verificarDigitarLog()">
+                </div>
+                <p id="msg_email"></p>
+                <label for="ipt_senha">Senha</label>
+                <div class="campo" id="campo_senha">
+                    <img src="assets/icones/trancar.png" alt="">
+                    <input type="password" id="ipt_senha" placeholder="Digite sua Senha" oninput="verificarDigitarLog()">
+                </div>
+                
+
+                <div id="div_mensagem">
+                </div>
+                <button onclick="logar()">Login</button>
+                
+        </div>
+        </section>
     </main>
 </body>
 </html>
