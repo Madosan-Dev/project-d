@@ -1,4 +1,5 @@
 function verificarFoto(){
+    div_mensagem.innerHTML = ``;
     let link = url_foto.value;
 
     if(link != ''){
@@ -7,10 +8,7 @@ function verificarFoto(){
         div_mensagem.innerHTML = `<p class="erro">Cole um Link de Imagem Valido!</p>`;
     }
 
-    if(onerror==null){
-        div_mensagem.visibilty = true;
-        div_mensagem.innerHTML = `<p class="erro">Cole um Link de Imagem Valido!</p>`;
-    }
+
 }
 
 let senhaVerificada = false;
@@ -24,54 +22,122 @@ function verificarSenha(){
     let temEspecial = false
     let listaEspecial = ['@','!','#','$','%','^','&','*','()','/'];
 
-    
-    for(let i = 0; i < listaEspecial.length; i++){
-        if(senha.includes(listaEspecial[i])){
-            temEspecial = true;
+    luz_semaforo.className = 'luz';
+    luz_semaforo2.className = 'luz';
+    msg_senha.innerHTML = ``;
+
+    if(senha != ''){
+        for(let i = 0; i < listaEspecial.length; i++){
+            if(senha.includes(listaEspecial[i])){
+                temEspecial = true;
+            }
         }
+        if(maiusculas){
+            valido++;
+        }
+        if(minusculas){
+            valido++;
+        }
+        
+        if(temEspecial == true){
+            valido++;
+        }
+        
+        if(senha.length > 8){
+            valido++;
+        }
+        
+        
+            if(valido < 2){
+                luz_semaforo.classList.add('fraca');
+                msg_senha.innerHTML = `<p class="senhaFraca">Senha Fraca</p>`;
+            }else if(valido < 4){
+                luz_semaforo.classList.add('media');
+                msg_senha.innerHTML = `<p class="senhaMedia">Senha Média</p>`;
+            }else{
+                luz_semaforo.classList.add('forte');
+                msg_senha.innerHTML = `<p class="senhaForte">Senha Forte</p>`;
+                senhaVerificada = true;
+            }
+        
+        
+        
     }
-    if(maiusculas){
-        valido++;
-    }
-    if(minusculas){
-        valido++;
-    }
-    
-    if(temEspecial == true){
-        valido++;
-    }
-    
-    if(senha.length > 8){
-        valido++;
-    }
-    
-    if(valido < 2){
-        div_senha.innerHTML = `<p class="erro">Senha Fraca</p>`;
-    }else if(valido < 4){
-        div_senha.innerHTML = `<p class="medio">Senha Média</p>`
+
+    if(senha != '' && confSenha != ''){
+        if(senha != confSenha){
+            luz_semaforo2.classList.add('fraca');
+            msg_conf.innerHTML = `<p class="senhaFraca">As senhas não conferem</p>`;
+            campo_conf_senha.classList.add('shake')
+            return false;
+        }else{
+            luz_semaforo2.classList.add('forte');
+            msg_conf.innerHTML = `<p class="senhaForte">As senhas conferem</p>`;
+            campo_conf_senha.classList.remove('shake')
+        }
     }else{
-        div_senha.innerHTML = `<p class="forte">Senha Forte</p>`
-    }
-    
-    if(senha != confSenha){
-        div_mensagem.innerHTML = `<p class="erro">As senhas não conferem</p>`;
-        return false;
-    }else{
-        div_mensagem.innerHTML = `<p class="forte">As senhas conferem</p>`;
+        msg_conf.innerHTML = ``;
+
     }
     
 }
 
-function cadastrar(){
+function verificarDigitar(){
+    let link = url_foto.value;
     let nome = ipt_nome.value
     let email = ipt_email.value;
+    let senha = ipt_senha.value;
+    let confSenha = ipt_confirmar_senha.value;
+
+    if(nome != ''){
+        campo_nome.classList.remove('shake');
+    }
+    if(email != ''){
+        campo_email.classList.remove('shake');
+    }
+    if(senha != ''){
+        campo_senha.classList.remove('shake');
+    }
+    if(confSenha != ''){
+        campo_conf_senha.classList.remove('shake');
+    }
+    if(link != ''){
+        campo_url.classList.remove('shake')
+    }
+}
+
+function cadastrar(){
+    let link = url_foto.value;
+    let nome = ipt_nome.value
+    let email = ipt_email.value;
+    let senha = ipt_senha.value;
+    let confSenha = ipt_confirmar_senha.value;
     let emailValido = false;
 
     let listaEmail = ['@sptech.school','@gmail.com','@outlook.com','@yahoo.com'];
 
+    if(nome == ''){
+        campo_nome.classList.add('shake');
+    }
+    if(email == ''){
+        campo_email.classList.add('shake');
+    }
+    if(senha == ''){
+        campo_senha.classList.add('shake');
+    }
+    if(confSenha == ''){
+        campo_conf_senha.classList.add('shake');
+    }
+    if(link == ''){
+        campo_url.classList.add('shake')
+    }
+
     if(
         nome == '' ||
-        email == '' 
+        email == '' ||
+        senha == '' ||
+        confSenha == '' ||
+        link == ''
     ){
         div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
         return false;
@@ -86,6 +152,15 @@ function cadastrar(){
     if(emailValido == false){
         div_mensagem.innerHTML = `<p class="erro">Email Invalido!</p>`;
         return false;
+    }
+
+    if(emailValido && senhaVerificada){
+        div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com sucesso!</p>`;
+        campo_email.classList.remove('shake');
+        campo_nome.classList.remove('shake');
+        campo_senha.classList.remove('shake');
+        campo_conf_senha.classList.remove('shake');
+        campo_url.classList.remove('shake')
     }
 
 }

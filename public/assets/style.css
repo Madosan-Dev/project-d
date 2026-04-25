@@ -211,9 +211,8 @@ body{
     display: flex;
     padding: 10px;
     align-items: center;
-    border: 1px solid wheat;
+    border-bottom: 2px solid wheat;
     background-color: #3b3e4f;
-    border-radius: 10px;
     overflow-y: hidden;
 }
 
@@ -221,7 +220,7 @@ body{
     background-color: transparent;
     outline: none;
     color: wheat;
-    margin-left: 5px;
+    margin-left: 10px;
     border: none;
     font-size: 18px;
     width: 380px;
@@ -233,7 +232,7 @@ body{
 
 .container-cadastro button{
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     height: 5vh;
     width: 100%;
     border-radius: 10px;
@@ -247,33 +246,93 @@ body{
     background-color: wheat;
     color: var(--cor-botao);
 }
+.shake{
+    border-color: red !important ;
+    animation: shake 0.5s;
+}
+.mensagem_erro{
+    color: red;
+    font-size: 18px;
+    visibility: hidden;
+}
+@keyframes shake{
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80%{
+        transform: translateX(5px);
+    }
+
+}
 .erro{
-    margin-top: 20px;
-    font-size: 20px;
-    background-color: rgb(255, 132, 132);
-    border: 3px solid darkred;
-    border-radius: 20px;
-    color: white;
-    padding: 10px;
-    text-align: center;
+    color: rgb(182, 22, 22);
+    font-size: 15px;
+    border-left: solid red 5px;
+    background-color: rgb(252, 98, 98);
+    padding: 20px;
 }
-.medio{
-    margin-top: 20px;
-    font-size: 20px;
-    background-color: rgb(228, 255, 147);
-    border: 3px solid rgb(181, 181, 2);
-    border-radius: 20px;
-    color: white;
-    padding: 10px;
-    text-align: center;
+
+.sucesso{
+    color: green;
+    font-size: 15px;
+    border-left: solid green 5px;
+    background-color: rgb(67, 165, 67);
+    padding: 20px;
 }
+.senhaFraca{
+    color: red;
+    margin-left: 10px;
+}
+.senhaMedia{
+    color: yellow;
+    margin-left: 10px;
+}
+.senhaForte{
+    color: rgb(1, 189, 1);
+    margin-left: 10px;
+}
+
+.semaforo-container{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.luz{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: #3b3e4f;
+}
+
+.apagada{
+    background-color: #3b3e4f;
+}
+
+.fraca{
+    background-color: red;
+}
+
+.media{
+    background-color: yellow;
+}
+
 .forte{
-    margin-top: 20px;
-    font-size: 20px;
-    background-color: rgb(171, 251, 162);
-    border: 3px solid darkgreen;
-    border-radius: 20px;
-    color: white;
-    padding: 10px;
-    text-align: center;
+    background-color: rgb(2, 211, 2);
+}
+
+.login{
+    background-image: url(imgs/ryosuke_vs_takumi.jpeg);
 }

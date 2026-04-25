@@ -20,38 +20,42 @@
                 
             </div>
             <label for="url_foto">Link da Foto</label>
-            <div class="campo url">
+            <div class="campo url" id="campo_url">
                 <img src="assets/icones/galeria-de-fotos.png" alt="">
-                <input type="text" id="url_foto" oninput="verificarFoto()" placeholder="Cole o Link da foto aqui">
+                <input type="text" id="url_foto" oninput="verificarFoto()" placeholder="Cole o Link da foto aqui" oninput="verificarDigitar()">
             </div>
         </div>
         <div id="container_campos">
             
                 <label for="ipt_nome">Nome de Usuario</label>
-                <div class="campo" >
+                <div class="campo" id="campo_nome">
                     <img src="assets/icones/do-utilizador.png" alt="">
-                    <input type="text" id="ipt_nome" placeholder="Digite seu Nome">
+                    <input type="text" id="ipt_nome" placeholder="Digite seu Nome" oninput="verificarDigitar()">
                 </div>
                 <label for="ipt_email">Email</label>
-                <div class="campo" >
+                <div class="campo" id="campo_email">
                     <img src="assets/icones/o-email.png" alt="">
-                    <input type="text"id="ipt_email" placeholder="Digite seu Email">
+                    <input type="text"id="ipt_email" placeholder="Digite seu Email" oninput="verificarDigitar()">
                 </div>
+                <p id="msg_email"></p>
                 <label for="ipt_senha">Senha</label>
-                <div class="campo">
+                <div class="campo" id="campo_senha">
                     <img src="assets/icones/trancar.png" alt="">
-                    <input type="password" id="ipt_senha" placeholder="Digite sua Senha" oninput="verificarSenha()">
+                    <input type="password" id="ipt_senha" placeholder="Digite sua Senha" oninput="verificarSenha(); verificarDigitar()">
+                </div>
+                <div class="semaforo-container">
+                    <div id="luz_semaforo" class="luz apagada"></div>
+                    <div id="msg_senha"></div>
                 </div>
                 <label for="ipt_confirmar_senha">Confirmar senha</label>
-                <div class="campo">
+                <div class="campo" id="campo_conf_senha">
                     <img src="assets/icones/trancar.png" alt="">
-                    <input type="password"id="ipt_confirmar_senha" placeholder="Confirmar senha">
-                </div>
-                <div id="div_senha">
-
+                    <input type="password"id="ipt_confirmar_senha" placeholder="Confirmar senha" oninput="verificarSenha(); verificarDigitar()">
+                </div><div class="semaforo-container">
+                    <div id="luz_semaforo2" class="luz apagada"></div>
+                    <div id="msg_conf"></div>
                 </div>
                 <div id="div_mensagem">
-                        <br><br>
                 </div>
                 <button onclick="cadastrar()">Cadastrar</button>
                 
