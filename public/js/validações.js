@@ -11,6 +11,19 @@ function verificarFoto(){
 
 }
 
+function verificarFotoCarro(){
+    div_mensagem.innerHTML = ``;
+    let link = url_foto.value;
+
+    if(link != ''){
+        div_foto.innerHTML = `<img src="${link}" class="foto_carro"  onerror="this.onerror=null; this.src='assets/icones/foto_invalida.png';">`;
+    }else{
+        div_mensagem.innerHTML = `<p class="erro">Cole um Link de Imagem Valido!</p>`;
+    }
+
+
+}
+
 let senhaVerificada = false;
 
 function verificarSenha(){
