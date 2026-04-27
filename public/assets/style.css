@@ -384,6 +384,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: fixed;
 }
 
 .btn-head.menu{
@@ -469,4 +470,22 @@ body{
     margin-left: 10px;
     font-size: 18px;
     width: 380px;
+}
+
+/*menu do perfil do piloto*/
+
+.container-perfil{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+.container-nome{
+    margin-left: 20%;
+    display: flex;
+}
+.container-nome h1{
+    font-size: 50px;
+    color: wheat;
 }
