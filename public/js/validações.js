@@ -154,12 +154,48 @@ function cadastrar(){
     }
 
     if(emailValido && senhaVerificada){
-        div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com sucesso!</p>`;
         campo_email.classList.remove('shake');
         campo_nome.classList.remove('shake');
         campo_senha.classList.remove('shake');
         campo_conf_senha.classList.remove('shake');
         campo_url.classList.remove('shake')
+
+         fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                linkServer: link,
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+            }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+               div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com sucesso! <br> Redirecionando para a tela de login...</p>`;
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000");
+
+                finalizarAguardar();
+                } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+
+    return false;
     }
     
 }
@@ -181,6 +217,55 @@ function logar(){
         div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
         return false;
     }
+
+    console.log("FORM LOGIN: ", email);
+    console.log("FORM SENHA: ", senha);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.LINK_USUARIO = json.url;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/pistas.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                div_mensagem.innerHTML = `<p class="erro">Houve um erro ao tentar realizar o login!</p>`;
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
 }
 
 function verificarDigitarLog(){

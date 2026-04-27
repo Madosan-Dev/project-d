@@ -141,9 +141,9 @@ body{
 
 .textos p{
     color: wheat;
-    font-size: 20px;
+    font-size: 25px;
     width: 500px;
-    height: 35vh;
+    height: 40vh;
     margin: 20px;
 }
 .textos h2{
@@ -415,6 +415,7 @@ body{
     color: wheat;
     overflow-y: hidden;
     font-size: 20px;
+    margin: 10px;
 }
 .container-cadastro-carro button{
     font-size: 20px;
