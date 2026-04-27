@@ -396,7 +396,10 @@ body{
 }
 
 /* Cadastro do Carro*/
-
+.cadastro-carro{
+    background-image: url(imgs/posto_gasolina_initial_d.webp);
+    background-size: cover;
+}
 
 .container-cadastro-carro{
     background-color: black;

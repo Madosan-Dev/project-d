@@ -9,7 +9,7 @@
     <script src="js/validações.js"></script>
 </head>
 <body>
-    <main class="cadastro">
+    <main class="cadastro-carro">
         <section class="container-cadastro-carro">
 
         <div id="container_foto">
@@ -41,7 +41,7 @@
                 <label for="ipt_potencia">Potência</label>
                 <div class="campo" id="campo_potencia">
                     <img src="assets/icones/motor.png" alt="">
-                    <input type="text" id="ipt_potencia" placeholder="Digite a potência do Carro" oninput="verificarDigitarCad()">
+                    <input type="text" id="ipt_potencia" placeholder="Digite a potência do Carro" maxlength="6" oninput="mascaraCavalo();verificarDigitarCad()">
                 </div>
                 <label for="ipt_tracao">Tração</label>
                 <div class="campo" id="campo_tracao">

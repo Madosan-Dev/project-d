@@ -245,6 +245,20 @@ function cadastrarCarro(){
     
 }
 
+function mascaraCavalo(){
+
+    let potencia = ipt_potencia.value;
+    
+    //esse comando /\D/g tira todas as letras e só deixa números
+    potencia = potencia.replace(/\D/g, "");
+
+    if (potencia !== "") {
+        potencia = `${potencia} CV`;
+    }
+
+    ipt_potencia.value = potencia;
+}
+
 function verificarDigitarCad(){
     let link = url_foto.value
     let marca = ipt_marca.value;

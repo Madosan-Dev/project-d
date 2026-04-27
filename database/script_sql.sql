@@ -13,11 +13,15 @@ CREATE TABLE usuario(
 CREATE TABLE carro(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     url_foto TEXT NOT NULL,
-    nome VARCHAR(100) NOT NULL,
+    modelo VARCHAR(100) NOT NULL,
+    marca VARCHAR(100) NOT NULL,
     cavalos INT NOT NULL,
+    tracao VARCHAR(50),
     fk_usuario INT NOT NULL,
     CONSTRAINT ch_fk_usuario
-		FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+		FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
+	CONSTRAINT ch_tracao
+		CHECK(tracao IN ('FR','FF','AWD'))
 );
 
 CREATE TABLE pneu(
