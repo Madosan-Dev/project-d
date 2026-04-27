@@ -239,7 +239,7 @@ function logar(){
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    sessionStorage.LINK_USUARIO = json.url;
+                    sessionStorage.LINK_USUARIO = json.url_foto;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;

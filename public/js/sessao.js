@@ -1,6 +1,5 @@
 // sessão
 function validarSessao() {
-    var link = sessionStorage.LINK_USUARIO;
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
@@ -15,7 +14,7 @@ function validarSessao() {
 
 function inserirFoto(){
     var link = sessionStorage.LINK_USUARIO;
-    let foto = document.getElementById('div_foto')
+    var foto = document.getElementById("div_foto");
 
     if(link != null){
         foto.innerHTML = `<img src="${link}" class="foto_perfil">`;
