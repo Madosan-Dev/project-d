@@ -22,7 +22,7 @@
             <label for="url_foto">Link da Foto</label>
             <div class="campo url" id="campo_url">
                 <img src="assets/icones/galeria-de-fotos.png" alt="">
-                <input type="text" id="url_foto" oninput="verificarFotoCarro()" placeholder="Cole o Link da foto aqui" oninput="verificarDigitar()">
+                <input type="text" id="url_foto" oninput="verificarFotoCarro();verificarDigitar()" placeholder="Cole o Link da foto aqui">
             </div>
         </div>
         <div id="container_campos">
@@ -41,7 +41,7 @@
                 <label for="ipt_potencia">Potência</label>
                 <div class="campo" id="campo_potencia">
                     <img src="assets/icones/motor.png" alt="">
-                    <input type="password" id="ipt_potencia" placeholder="Digite a potência do Carro" oninput="verificarSenha(); verificarDigitar()">
+                    <input type="text" id="ipt_potencia" placeholder="Digite a potência do Carro" oninput="verificarSenha(); verificarDigitar()">
                 </div>
                 <label for="ipt_tracao">Tração</label>
                 <div class="campo" id="campo_tracao">
@@ -49,11 +49,12 @@
                     <select id="slt_tracao">
                         <option value="FR">Traseira</option>
                         <option value="FF">Fronteira</option>
+                        <option value="AWD">Integral</option>
                     </select>
                 </div>
                 <div id="div_mensagem">
                 </div>
-                <button onclick="cadastrar()">Cadastrar</button>
+                <button onclick="cadastrar_carro()">Cadastrar</button>
                 
         </div>
         </section>

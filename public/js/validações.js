@@ -1,29 +1,15 @@
+
 function verificarFoto(){
     div_mensagem.innerHTML = ``;
     let link = url_foto.value;
-
+    
     if(link != ''){
         div_foto.innerHTML = `<img src="${link}" class="foto_perfil"  onerror="this.onerror=null; this.src='assets/icones/foto_invalida.png';">`;
     }else{
         div_mensagem.innerHTML = `<p class="erro">Cole um Link de Imagem Valido!</p>`;
     }
-
-
+    
 }
-
-function verificarFotoCarro(){
-    div_mensagem.innerHTML = ``;
-    let link = url_foto.value;
-
-    if(link != ''){
-        div_foto.innerHTML = `<img src="${link}" class="foto_carro"  onerror="this.onerror=null; this.src='assets/icones/foto_invalida.png';">`;
-    }else{
-        div_mensagem.innerHTML = `<p class="erro">Cole um Link de Imagem Valido!</p>`;
-    }
-
-
-}
-
 let senhaVerificada = false;
 
 function verificarSenha(){
@@ -34,11 +20,11 @@ function verificarSenha(){
     let minusculas = senha != senha.toUpperCase();
     let temEspecial = false
     let listaEspecial = ['@','!','#','$','%','^','&','*','()','/'];
-
+    
     luz_semaforo.className = 'luz';
     luz_semaforo2.className = 'luz';
     msg_senha.innerHTML = ``;
-
+    
     if(senha != ''){
         for(let i = 0; i < listaEspecial.length; i++){
             if(senha.includes(listaEspecial[i])){
@@ -61,22 +47,22 @@ function verificarSenha(){
         }
         
         
-            if(valido < 2){
-                luz_semaforo.classList.add('fraca');
-                msg_senha.innerHTML = `<p class="senhaFraca">Senha Fraca</p>`;
-            }else if(valido < 4){
-                luz_semaforo.classList.add('media');
-                msg_senha.innerHTML = `<p class="senhaMedia">Senha Média</p>`;
-            }else{
-                luz_semaforo.classList.add('forte');
-                msg_senha.innerHTML = `<p class="senhaForte">Senha Forte</p>`;
-                senhaVerificada = true;
-            }
+        if(valido < 2){
+            luz_semaforo.classList.add('fraca');
+            msg_senha.innerHTML = `<p class="senhaFraca">Senha Fraca</p>`;
+        }else if(valido < 4){
+            luz_semaforo.classList.add('media');
+            msg_senha.innerHTML = `<p class="senhaMedia">Senha Média</p>`;
+        }else{
+            luz_semaforo.classList.add('forte');
+            msg_senha.innerHTML = `<p class="senhaForte">Senha Forte</p>`;
+            senhaVerificada = true;
+        }
         
         
         
     }
-
+    
     if(senha != '' && confSenha != ''){
         if(senha != confSenha){
             luz_semaforo2.classList.add('fraca');
@@ -90,7 +76,7 @@ function verificarSenha(){
         }
     }else{
         msg_conf.innerHTML = ``;
-
+        
     }
     
 }
@@ -101,7 +87,7 @@ function verificarDigitar(){
     let email = ipt_email.value;
     let senha = ipt_senha.value;
     let confSenha = ipt_confirmar_senha.value;
-
+    
     if(nome != ''){
         campo_nome.classList.remove('shake');
     }
@@ -126,9 +112,9 @@ function cadastrar(){
     let senha = ipt_senha.value;
     let confSenha = ipt_confirmar_senha.value;
     let emailValido = false;
-
+    
     let listaEmail = ['@sptech.school','@gmail.com','@outlook.com','@yahoo.com'];
-
+    
     if(nome == ''){
         campo_nome.classList.add('shake');
     }
@@ -144,7 +130,7 @@ function cadastrar(){
     if(link == ''){
         campo_url.classList.add('shake')
     }
-
+    
     if(
         nome == '' ||
         email == '' ||
@@ -155,13 +141,13 @@ function cadastrar(){
         div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
         return false;
     }
-
+    
     for(let i = 0; i < listaEmail.length;i++){
         if(email.includes(listaEmail[i])){
             emailValido = true;
         }
     }
-
+    
     if(emailValido == false){
         div_mensagem.innerHTML = `<p class="erro">Email Invalido!</p>`;
         return false;
@@ -175,22 +161,22 @@ function cadastrar(){
         campo_conf_senha.classList.remove('shake');
         campo_url.classList.remove('shake')
     }
-
+    
 }
 
 function logar(){
     let email = ipt_email.value;
     let senha = ipt_senha.value;
-
+    
     if(email == ''){
         campo_email.classList.add('shake');
     }
     if(senha == ''){
         campo_senha.classList.add('shake');
     }
-
+    
     if(email == '' ||
-       senha == '' 
+        senha == '' 
     ){
         div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
         return false;
@@ -200,12 +186,26 @@ function logar(){
 function verificarDigitarLog(){
     let email = ipt_email.value;
     let senha = ipt_senha.value;
-
+    
     if(email != ''){
         campo_email.classList.remove('shake');
     }
     if(senha != ''){
         campo_senha.classList.remove('shake');
     }
+    
+}
 
+// funções relacionadas ao cadastro do carro
+
+function verificarFotoCarro(){
+    div_mensagem.innerHTML = ``;
+    let link = url_foto.value;
+    
+    if(link != ''){
+        div_foto.innerHTML = `<img src="${link}" class="foto_carro"  onerror="this.onerror=null; this.src='assets/icones/foto_invalida.png';">`;
+    }else{
+        div_mensagem.innerHTML = `<p class="erro">Cole um Link de Imagem Valido!</p>`;
+    }
+    
 }
