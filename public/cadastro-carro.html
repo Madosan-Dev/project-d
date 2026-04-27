@@ -22,31 +22,32 @@
             <label for="url_foto">Link da Foto</label>
             <div class="campo url" id="campo_url">
                 <img src="assets/icones/galeria-de-fotos.png" alt="">
-                <input type="text" id="url_foto" oninput="verificarFotoCarro();verificarDigitar()" placeholder="Cole o Link da foto aqui">
+                <input type="text" id="url_foto" oninput="verificarFotoCarro();verificarDigitarCad()" placeholder="Cole o Link da foto aqui">
             </div>
         </div>
         <div id="container_campos">
             
                 <label for="ipt_marca">Marca do Carro</label>
-                <div class="campo" id="campo_nome">
+                <div class="campo" id="campo_marca">
                     <img src="assets/icones/carro.png" alt="">
-                    <input type="text" id="ipt_marca" placeholder="Digite a Marca do Carro" oninput="verificarDigitar()">
+                    <input type="text" id="ipt_marca" placeholder="Digite a Marca do Carro" oninput="verificarDigitarCad()">
                 </div>
                 <label for="ipt_modelo">Modelo do Carro</label>
                 <div class="campo" id="campo_modelo">
                     <img src="assets/icones/carro.png" alt="">
-                    <input type="text" id="ipt_modelo" placeholder="Digite o Modelo do Carro" oninput="verificarDigitar()">
+                    <input type="text" id="ipt_modelo" placeholder="Digite o Modelo do Carro" oninput="verificarDigitarCad()">
                 </div>
                 <p id="msg_email"></p>
                 <label for="ipt_potencia">Potência</label>
                 <div class="campo" id="campo_potencia">
                     <img src="assets/icones/motor.png" alt="">
-                    <input type="text" id="ipt_potencia" placeholder="Digite a potência do Carro" oninput="verificarSenha(); verificarDigitar()">
+                    <input type="text" id="ipt_potencia" placeholder="Digite a potência do Carro" oninput="verificarDigitarCad()">
                 </div>
                 <label for="ipt_tracao">Tração</label>
                 <div class="campo" id="campo_tracao">
                     <img src="assets/icones/eixo.png" alt="">
-                    <select id="slt_tracao">
+                    <select id="slt_tracao" onchange="verificarDigitarCad()">
+                        <option value="nulo" disabled selected>Escolha a tração</option>
                         <option value="FR">Traseira</option>
                         <option value="FF">Fronteira</option>
                         <option value="AWD">Integral</option>
@@ -54,7 +55,7 @@
                 </div>
                 <div id="div_mensagem">
                 </div>
-                <button onclick="cadastrar_carro()">Cadastrar</button>
+                <button onclick="cadastrarCarro()">Cadastrar</button>
                 
         </div>
         </section>

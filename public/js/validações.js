@@ -209,3 +209,64 @@ function verificarFotoCarro(){
     }
     
 }
+function cadastrarCarro(){
+    let link = url_foto.value
+    let marca = ipt_marca.value;
+    let modelo = ipt_modelo.value;
+    let potencia = ipt_potencia.value;
+    let tracao = slt_tracao.value;
+
+    if(link == ''){
+        campo_url.classList.add('shake');
+    }
+    if(marca == ''){
+        campo_marca.classList.add('shake');
+    }
+    if(modelo == ''){
+        campo_modelo.classList.add('shake');
+    }
+    if(potencia == ''){
+        campo_potencia.classList.add('shake');
+    }
+    if(tracao == 'nulo'){
+        campo_tracao.classList.add('shake')
+    }
+
+       if(
+        link == '' ||
+        marca == '' ||
+        modelo == '' ||
+        potencia == '' ||
+        tracao == ''
+    ){
+        div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
+        return false;
+    }
+    
+}
+
+function verificarDigitarCad(){
+    let link = url_foto.value
+    let marca = ipt_marca.value;
+    let modelo = ipt_modelo.value;
+    let potencia = ipt_potencia.value;
+    let tracao = slt_tracao.value;
+
+    if(link != ''){
+        campo_url.classList.remove('shake');
+    }
+    if(marca != ''){
+        campo_marca.classList.remove('shake');
+    }
+    if(modelo != ''){
+        campo_modelo.classList.remove('shake');
+    }
+    if(potencia != ''){
+        campo_potencia.classList.remove('shake');
+    }
+    if(tracao != 'nulo'){
+        campo_tracao.classList.remove('shake')
+    }
+
+    
+}
