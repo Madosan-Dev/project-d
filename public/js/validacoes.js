@@ -332,6 +332,44 @@ function cadastrarCarro(){
         div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
         return false;
     }
+
+      fetch("/carros/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                linkServer: link,
+                marcaServer: marca,
+                modeloServer: modelo,
+                potenciaServer: potencia,
+                pesoServer: peso,
+                tracaoServer: tracao
+            }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+               div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com Sucesso! <br> Redirecionando para a garagem...</p>`;
+
+                setTimeout(() => {
+                    window.location = "./dashboard/garagem.html";
+                }, "2000");
+
+                finalizarAguardar();
+                } else {
+                throw "Houve um erro ao tentar realizar o cadastro do carro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+
     
 }
 
