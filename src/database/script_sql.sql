@@ -77,7 +77,10 @@ CREATE TABLE corrida(
     clima VARCHAR(45),
     fk_pista INT,
     CONSTRAINT ch_clima
-		CHECK (clima IN ('Chuva', 'Chuva Forte', 'Limpo'))
+		CHECK (clima IN ('Chuva', 'Chuva Forte', 'Limpo')),
+	
+    CONSTRAINT ch_fk_pista
+		FOREIGN KEY (fk_pista) REFERENCES pista(id)
 );
 
 CREATE TABLE historico_corrida(
