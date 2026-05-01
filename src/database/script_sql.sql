@@ -90,3 +90,5 @@ CREATE TABLE corrida(
 	CONSTRAINT ch_ganhador_id
 		FOREIGN KEY (ganhador_id) REFERENCES usuario(id) 
 );
+
+SELECT * FROM usuario;

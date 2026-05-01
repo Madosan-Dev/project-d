@@ -299,6 +299,7 @@ function cadastrarCarro(){
     let marca = ipt_marca.value;
     let modelo = ipt_modelo.value;
     let potencia = ipt_potencia.value;
+    let peso = ipt_peso.value;
     let tracao = slt_tracao.value;
 
     if(link == ''){
@@ -313,6 +314,9 @@ function cadastrarCarro(){
     if(potencia == ''){
         campo_potencia.classList.add('shake');
     }
+    if(peso == ''){
+        campo_peso.classList.add('shake');
+    }
     if(tracao == 'nulo'){
         campo_tracao.classList.add('shake')
     }
@@ -322,6 +326,7 @@ function cadastrarCarro(){
         marca == '' ||
         modelo == '' ||
         potencia == '' ||
+        peso == '' ||
         tracao == ''
     ){
         div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
@@ -349,6 +354,7 @@ function verificarDigitarCad(){
     let marca = ipt_marca.value;
     let modelo = ipt_modelo.value;
     let potencia = ipt_potencia.value;
+    let peso = ipt_peso.value;
     let tracao = slt_tracao.value;
 
     if(link != ''){
@@ -362,6 +368,9 @@ function verificarDigitarCad(){
     }
     if(potencia != ''){
         campo_potencia.classList.remove('shake');
+    }
+    if(peso != ''){
+        campo_peso.classList.remove('shake');
     }
     if(tracao != 'nulo'){
         campo_tracao.classList.remove('shake')
