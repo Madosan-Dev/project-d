@@ -17,6 +17,7 @@ CREATE TABLE carro(
     marca VARCHAR(100) NOT NULL,
     cavalos INT NOT NULL,
     tracao VARCHAR(50),
+    peso FLOAT NOT NULL,
     fk_usuario INT NOT NULL,
     CONSTRAINT ch_fk_usuario
 		FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
@@ -39,6 +40,8 @@ CREATE TABLE pneu(
         ('Dianteira Direita','Dianteira Esquerda','Traseira Direita','Traseira Esquerda')),
 	CONSTRAINT ch_tipo
 		CHECK(tipo IN ('Rally','Semi Slick','Slick')),
+        
+	-- UNIQUE para apenas existir 4 rodas para aquele carro nas seguintes posições
 	UNIQUE(fk_carro,posicao)
 );
 
@@ -68,27 +71,37 @@ CREATE TABLE conhecimento_pista(
     PRIMARY KEY (pista_id,usuario_id)
 );
 
+
 CREATE TABLE corrida(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     clima VARCHAR(45),
-    tempo1 TIME,
-    tempo2 TIME,
     fk_pista INT,
-	corredor1_id INT,
-    corredor2_id INT,
-    ganhador_id INT,
-    
     CONSTRAINT ch_clima
-		CHECK (clima IN ('Chuva', 'Chuva Forte', 'Limpo')),
-    
-    CONSTRAINT ch_fk_pista
-		FOREIGN KEY (fk_pista) REFERENCES pista(id),
-	CONSTRAINT ch_corredor1_id
-		FOREIGN KEY (corredor1_id) REFERENCES usuario(id),
-	CONSTRAINT ch_corredor2_id
-		FOREIGN KEY (corredor2_id) REFERENCES usuario(id),
-	CONSTRAINT ch_ganhador_id
-		FOREIGN KEY (ganhador_id) REFERENCES usuario(id) 
+		CHECK (clima IN ('Chuva', 'Chuva Forte', 'Limpo'))
 );
+
+CREATE TABLE historico_corrida(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    corredor_id INT,
+    corrida_id INT,
+    -- o número é pra identificar qual corredor é, 0 = 1 e 1 = 2
+    numero TINYINT,
+    -- se ganhador for igual a 0 = perdeu, 1 = ganhou
+    ganhador TINYINT,
+    -- esse é o tempo feito na corrida, ele não recebe NOT NULL pois se ele sofrer acidente
+    -- fica salvo como NULL
+    tempo TIME,
+    
+    CONSTRAINT ch_fk_corredor
+		FOREIGN KEY (corredor_id) REFERENCES usuario(id),
+	CONSTRAINT ch_fk_corrida
+		FOREIGN KEY (corrida_id) REFERENCES corrida(id),
+	
+    -- UNIQUE para só ter apenas 2 corredores em uma corrida
+	UNIQUE(numero, corrida_id)
+);
+
+
+
 
 SELECT * FROM usuario;
