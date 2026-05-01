@@ -301,6 +301,7 @@ function cadastrarCarro(){
     let potencia = ipt_potencia.value;
     let peso = ipt_peso.value;
     let tracao = slt_tracao.value;
+    let fkUsuario = sessionStorage.ID_USUARIO;
 
     if(link == ''){
         campo_url.classList.add('shake');
@@ -346,7 +347,8 @@ function cadastrarCarro(){
                 modeloServer: modelo,
                 potenciaServer: potencia,
                 pesoServer: peso,
-                tracaoServer: tracao
+                tracaoServer: tracao,
+                fkUsuarioServer: fkUsuario
             }),
             })
             .then(function (resposta) {
