@@ -1,5 +1,9 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var carroController = require('../controllers/carroController');
+let carroController = require('../controllers/carroController');
 
+// recebendo dados do HTML e direcionando para a função cadastrarCarro do carroController
+router.post("/cadastrar", function (req, res){
+    carroController.cadastrarCarro(req,res);
+});
