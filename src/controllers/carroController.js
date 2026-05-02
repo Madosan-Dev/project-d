@@ -1,7 +1,27 @@
 let carroModel = require('../models/carroModel');
 
-function buscarCarro(){
+function buscarCarro(req,res){
+    let idUsuario = req.params.idUsuario;
 
+    if(idUsuario == undefined){
+        res.status(400).send("O id está undefined");
+    }else{
+        carroModel.buscarCarro(idUsuario)
+             .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao fazer o SELECT dos dados do banco! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 }
 
 function cadastrarCarro(req,res){
@@ -48,5 +68,6 @@ function cadastrarCarro(req,res){
 }
 
 module.exports = {
-    cadastrarCarro
+    cadastrarCarro,
+    buscarCarro
 }
