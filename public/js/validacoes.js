@@ -245,7 +245,7 @@ function logar(){
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/pistas.html";
+                        window.location = "./dashboard/perfil.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
