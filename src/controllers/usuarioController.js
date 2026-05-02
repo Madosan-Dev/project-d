@@ -79,7 +79,7 @@ function cadastrar(req, res) {
 
 function atualizarDescricao(req,res){
     let idUsuario = req.params.idUsuario;
-    let descricao = req.body.descricao;
+    let descricao = req.body.descricaoServer;
 
     if(idUsuario == undefined){
         res.status(400).send("O idUsuario está undefined");

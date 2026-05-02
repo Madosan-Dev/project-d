@@ -7,6 +7,7 @@
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
     <script src="../js/dashboards.js"></script>
+    <script src="../js/atualizar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="../assets/imgs/Project_d_icon.png" type="image/x-icon">
 </head>
@@ -31,7 +32,10 @@
 
             <div class="container-nome">
                 <h1 id="nome_usuario"></h1>
-                <h3 id="descricao_usuario"></h3>
+                <textarea id="descricao_perfil" readonly></textarea>
+                <button onclick="alterarDescricao()" id="btn_alt">Editar Descricao</button>
+                <button onclick="atualizarDescricao()" id="btn_up" style="display: none;">Salvar Descricao</button>
+                <div id="div_mensagem"></div>
             </div>
         </div>
         <div class="container_grafico_perfil">
