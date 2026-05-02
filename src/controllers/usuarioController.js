@@ -104,8 +104,33 @@ function atualizarDescricao(req,res){
     }
 }
 
+function buscarDescricao(req,res){
+    let idUsuario = req.params.idUsuario;
+
+    if(idUsuario == undefined){
+        res.status(400).send("O idUsuario está undefined");
+    }else{
+        usuarioModel.buscarDescricao(idUsuario)
+            .then(
+                function (resultado){
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro){
+                    console.log(erro);
+                   console.log(
+                        "\nHouve um erro ao atualizar a descricao! Erro: ",
+                         erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            )
+    }
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    atualizarDescricao
+    atualizarDescricao,
+    buscarDescricao
 }

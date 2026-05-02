@@ -12,6 +12,10 @@ router.put("/atualizarDescricao/:idUsuario", function(req,res){
     usuarioController.atualizarDescricao(req,res);
 });
 
+router.get("/buscarDescricao/:idUsuario", function (req,res){
+    usuarioController.buscarDescricao(req,res);
+});
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
