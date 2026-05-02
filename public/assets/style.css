@@ -661,3 +661,35 @@ body{
     color: white;
 }
 
+/* MENU SAIR */
+
+#tela_escura{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_destaque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--cor-fundo-preto);
+    height: 40vh;
+    width: 50vw;
+    border-radius: 10vh;
+}
+
+.menu_destaque h2{
+    color: wheat;
+    font-size: 5vh;
+    margin-bottom: 10vh;
+}
+

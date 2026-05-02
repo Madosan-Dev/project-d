@@ -6,6 +6,7 @@
     <title>Project D / Garagem</title>
     <script src="../js/buscar.js"></script>
     <script src="../js/sessao.js"></script>
+    <script src="../js/menuSair.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="shortcut icon" href="../assets/imgs/Project_d_icon.png" type="image/x-icon">
 </head>
@@ -18,7 +19,7 @@
             <a href="perfil.html">Perfil do Piloto</a>
             <a href="garagem.html" class="active">Garagem</a>
             <a href="dashboard.html">Dashboard</a>
-            <a onclick="limparSessao()">Sair</a>
+            <a onclick="abrirMenu()">Sair</a>
         </div>
     </header>
 
@@ -36,6 +37,16 @@
             
         </div>
     </main>
+
+    <div id="tela_escura" class="overlay" style="display:none;">
+        <div class="menu_destaque">
+            <h2>Deseja realmente sair?</h2>
+            <div class="btn-head">
+                <a onclick="limparSessao()">Sim</a>
+                <a onclick="fecharMenu()">Não</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 <script>
