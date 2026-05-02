@@ -6,15 +6,16 @@
     <title>Project D</title>
     <link rel="shortcut icon" href="assets/imgs/Project_d_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/style.css">
+    <script src="../js/sessao.js"></script>
 </head>
 <body>
     <header class="barra">
         <a href="index.html">
             <img src="assets/imgs/Project_d_logo.png" alt="Logo do Project D">
         </a>
-        <div class="btn-head">
-            <a href="login.html">Login</a>
-            <a href="cadastro.html">Cadastrar</a>
+        <div class="btn-head" id="btns">
+            <a href="login.html" id="btn_login">Login</a>
+            <a href="cadastro.html" id="btn_cad">Cadastrar</a>
         </div>
     </header>
     <section class="video-container">
@@ -109,3 +110,6 @@
     </footer>
 </body>
 </html>
+<script>
+    verificarLogado();
+</script>
