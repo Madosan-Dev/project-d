@@ -8,7 +8,7 @@ router.post("/cadastrar", function (req, res){
     carroController.cadastrarCarro(req, res);
 });
 
-router.get("/buscar", function (req, res){
+router.get("/buscar/:idUsuario", function (req, res){
     carroController.buscarCarro(req,res);
 });
 
