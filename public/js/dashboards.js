@@ -2,7 +2,8 @@
 
 
 function perfilDashboard(){
-    const graficoPizza = document.getElementById('grafico_pizza');
+    const graficoPizza = document.getElementById('perfil_corrida');
+    const graficoPista = document.getElementById('perfil_pistas')
 
     new Chart(graficoPizza, {
       type: 'pie',
@@ -24,6 +25,7 @@ function perfilDashboard(){
       options: {
         plugins: {
           legend:{
+            position: 'bottom',
             labels: {
               color: 'wheat',
               font: {

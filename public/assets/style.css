@@ -486,7 +486,7 @@ body{
 .container-perfil{
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 30%;
     margin-top: 10%;
 }
@@ -494,8 +494,12 @@ body{
     position: absolute;
     top: 3vh;
     color: white;
-    margin-left: 10%;
     font-size: 8vh;
+}
+#container_foto_perfil{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 .campo_foto.perfil{
     height: 40vh;
@@ -508,6 +512,10 @@ body{
 .container-nome h1{
     font-size: 50px;
     color: wheat;
+}
+.container_grafico_perfil{
+    display: flex;
+    justify-content: flex-start;
 }
 
 /*MENU DA GARAGEM*/
