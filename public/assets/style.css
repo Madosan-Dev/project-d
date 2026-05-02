@@ -516,10 +516,38 @@ body{
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-left: 30%;
-    margin-top: 10%;
+    margin-left: 35%;
 }
 .campo_foto_carro.dash{
     width: 50vw;
     height: 50vh;
+    background-color: var(--cor-fundo-preto);
+}
+
+#div_foto{
+    display: flex;
+    flex-direction: column;
+}
+#div_foto h1{
+    color: wheat;
+}
+
+#div_foto a{
+    font-size: 20px;
+    margin-top: 50px;
+    height: 5vh;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 1px solid wheat;
+    background-color: var(--cor-botao);
+    color: wheat;
+}
+
+#div_foto a:hover{
+    background-color: wheat;
+    color: var(--cor-botao);
 }
