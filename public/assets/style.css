@@ -560,7 +560,7 @@ body{
     border-radius: 10px;
     transition: 0.5s;
     border: 1px solid wheat;
-    background-color: var(--cor-botao);
+    background-color: var(--cor-fundo-preto);
     color: wheat;
 }
 
@@ -577,7 +577,7 @@ body{
     width: 40%;
     align-self: flex-end;
     margin-right: 10%;
-    background-color: var(--cor-fundo);
+    background-color: rgb(48, 47, 47);
     border: 2px solid wheat;
 }
 
@@ -603,5 +603,9 @@ body{
     color: wheat;
     font-size: 2vh;
     margin-left: 10%;
+}
+
+.info span{
+    color: white;
 }
 

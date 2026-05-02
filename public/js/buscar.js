@@ -46,29 +46,39 @@ function carregarDados(){
                             let cavalos = dados[0].cavalos;
                             let tracao = dados[0].tracao;
                             let peso = dados[0].peso;
+                            let tracaoFormatado = '';
+
+                            if(tracao == 'AWD'){
+                                tracaoFormatado = 'Integral';
+                            }else if(tracao == 'FR'){
+                                tracaoFormatado = 'Traseira';
+                            }else if(tracao == 'FF'){
+                                tracaoFormatado = 'Dianteira';
+                            }
     
                             dados_carro.innerHTML = `
                             <h2>Dados do Carro</h2>
                             <div class="dados_carro">
                                 <div class="info">
                                     <img src="../assets/icones/carro.png" alt="">
-                                    <p>Modelo : ${modelo}</p>
+                                    <p>Modelo : <span>${modelo} </span></p>
                                 </div>
                                 <div class="info">
                                     <img src="../assets/icones/carro.png" alt="">
-                                    <p>Marca : ${marca}</p>
+                                    <p>Marca : <span>${marca} </span></p>
                                 </div>
                                 <div class="info">
                                     <img src="../assets/icones/eixo.png" alt="">
-                                    <p>Tração : ${tracao}</p>
+                                    <p>Tração : <span>${tracao} (${tracaoFormatado})</span></p>
                                 </div>
                                 <div class="info">
                                     <img src="../assets/icones/peso.png" alt="">
-                                    <p>Peso : ${peso}</p>
+                                    <p>Peso : <span>
+                                    ${peso.toFixed(2).replaceAll('.',',')} KG</span></p>
                                 </div>
                                 <div class="info">
                                     <img src="../assets/icones/motor.png" alt="">
-                                    <p>Potencia : ${cavalos} CV</p>
+                                    <p>Potencia : <span>${cavalos} CV </span></p>
                                 </div>
                             </div>
                             `;
@@ -83,4 +93,8 @@ function carregarDados(){
                 console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
         });
+}
+
+function buscarPneu(){
+
 }
