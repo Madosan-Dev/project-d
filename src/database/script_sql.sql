@@ -6,7 +6,7 @@ CREATE TABLE usuario(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     url_foto TEXT NOT NULL,
     nome VARCHAR(255) NOT NULL,
-    descricao VARCHAR(255),
+    descricao VARCHAR(500),
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL
 );

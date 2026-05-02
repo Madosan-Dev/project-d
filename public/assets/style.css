@@ -1,6 +1,10 @@
 @font-face {
     font-family: racing;
-    src: url(fonts/Racing_Sans_One/RacingSansOne-Regular.ttf);
+    src: url("fonts/Racing_Sans_One/RacingSansOne-Regular.ttf");
+}
+@font-face {
+    font-family: seibi;
+    src: url("fonts/Seibi Ookido/Seibi Ohkido.otf");
 }
 
 *{
@@ -108,6 +112,7 @@ body{
     background-color: var(--cor-botao);
     font-size: 200px;
      white-space: nowrap;
+     font-family: seibi;
 }
 .section img{
     margin-left: 5%;
@@ -150,6 +155,7 @@ body{
     color: wheat;
     font-size: 200%;
     margin-bottom: 20%;
+    font-family: seibi;
 }
 .footer-site{
     background-color: black;
@@ -396,6 +402,7 @@ body{
 
 .btn-head.menu a{
     width: 15vw;
+    font-family: seibi;
 }
 
 .btn-head.menu a.active{
@@ -495,6 +502,7 @@ body{
     top: 3vh;
     color: white;
     font-size: 8vh;
+    font-family: seibi;
 }
 #container_foto_perfil{
     display: flex;
@@ -512,13 +520,15 @@ body{
     justify-content: space-evenly;
 }
 .container-nome h1{
-    font-size: 50px;
+    font-size: 5vh;
     color: wheat;
+    font-family: seibi;
+    margin: 5%;
 }
 
 .container-nome textarea{
     background-color: var(--cor-fundo-preto);
-    height: 30vh;
+    min-height: 20vh;
     width: 20vw;
     border: solid 1px var(--cor-fundo-preto);
     outline: none;
