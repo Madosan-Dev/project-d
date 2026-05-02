@@ -98,3 +98,34 @@ function carregarDados(){
 function buscarPneu(){
 
 }
+
+function buscarDescricao(){
+    let idUsuario = sessionStorage.ID_USUARIO;
+    let descricaoPerfil = document.getElementById('descricao_perfil');
+    let status_desc = document.getElementById('status_desc');
+
+    fetch(`/usuarios/buscarDescricao/${idUsuario}`)
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    resposta.json().then(function (dados){
+
+                        if(dados.length > 0){
+                            let descricao = dados[0].descricao;
+                            if(descricao != null){
+                                descricaoPerfil.value = descricao; 
+                            }else{
+                                status_desc.innerHTML = 'Adicionar';
+                            }
+                        }
+                    });
+                } else {
+                throw "Houve um erro ao buscar os dados!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+}
