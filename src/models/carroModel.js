@@ -4,7 +4,7 @@ function buscarCarro(idUsuario){
     console.log("ACESSEI O CARRO MODEL");
 
     let instrucaoSql = `
-        SELECT * FROM carro WHERE id = '${idUsuario}';
+        SELECT * FROM carro WHERE fk_usuario = '${idUsuario}';
     `;
 
     console.log(`EXECUTANDO INTRUÇÃO SQL: \n ${instrucaoSql}`);
