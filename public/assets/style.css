@@ -580,7 +580,12 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 35%;
+    margin-left: 30%;
+}
+.container-garagem h1{
+    color: white;
+    font-size: 8vh;
+    font-family: seibi;
 }
 .campo_foto_carro.dash{
     width: 50vw;
