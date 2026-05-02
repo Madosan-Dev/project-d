@@ -8,4 +8,8 @@ router.post("/cadastrar", function (req, res){
     carroController.cadastrarCarro(req, res);
 });
 
+router.get("/buscar", function (req, res){
+    carroController.buscarCarro(req,res);
+});
+
 module.exports = router;
