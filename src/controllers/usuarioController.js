@@ -75,9 +75,37 @@ function cadastrar(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
+}
+
+function atualizarDescricao(req,res){
+    let idUsuario = req.params.idUsuario;
+    let descricao = req.body.descricao;
+
+    if(idUsuario == undefined){
+        res.status(400).send("O idUsuario está undefined");
+    } else if (descricao == undefined){
+        res.status(400).send("A Descricao está undefined");
+    } else{
+        usuarioModel.atualizarDescricao(idUsuario,descricao)
+            .then(
+                function (resultado){
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro){
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao atualizar a descricao! Erro: ",
+                         erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            )
     }
+}
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    atualizarDescricao
 }

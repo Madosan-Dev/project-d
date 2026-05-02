@@ -8,6 +8,10 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.put("/atualizarDescricao/:idUsuario", function(req,res){
+    usuarioController.atualizarDescricao(req,res);
+});
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
