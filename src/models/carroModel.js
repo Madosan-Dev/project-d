@@ -1,7 +1,14 @@
 let database = require("../database/config");
 
-function buscarCarro(){
-    
+function buscarCarro(idUsuario){
+    console.log("ACESSEI O CARRO MODEL");
+
+    let instrucaoSql = `
+        SELECT * FROM carro WHERE id = '${idUsuario}';
+    `;
+
+    console.log(`EXECUTANDO INTRUÇÃO SQL: \n ${instrucaoSql}`);
+    return database.executar(instrucaoSql);
 }
 
 function cadastrarCarro(urlFoto,modelo,marca,tracao,peso,cavalos,fkUsuario){
