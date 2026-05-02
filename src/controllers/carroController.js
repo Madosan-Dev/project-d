@@ -30,7 +30,7 @@ function cadastrarCarro(req,res){
         res.status(400).send("O fkUsuario está undefined");
     }
 
-        carroModel.cadastrarCarro(link,marca,modelo,potencia,peso,tracao)
+        carroModel.cadastrarCarro(link,modelo,marca,tracao,peso,potencia,fkUsuario)
              .then(
                 function (resultado) {
                     res.json(resultado);
