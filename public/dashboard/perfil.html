@@ -6,6 +6,8 @@
     <title>Project D / Perfil</title>
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
+    <script src="../js/dashboards.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="../assets/imgs/Project_d_icon.png" type="image/x-icon">
 </head>
 <body>
@@ -26,14 +28,19 @@
             <div class="campo_foto perfil" id="div_foto">
 
             </div>
+            
+            <canvas id="grafico_pizza"></canvas>
         </div>
         <div class="container-nome">
             <h1 id="nome_usuario"></h1>
         </div>
+        
+        
     </main>
 </body>
 </html>
 <script>
     validarSessao();
     inserirFoto();
+    perfilDashboard();
 </script>
