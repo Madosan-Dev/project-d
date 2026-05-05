@@ -334,6 +334,8 @@ function cadastrarCarro(){
         return false;
     }
 
+    potencia = parseInt(potencia);
+
       fetch("/carros/cadastrar", {
             method: "POST",
             headers: {

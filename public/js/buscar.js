@@ -129,3 +129,21 @@ function buscarDescricao(){
                 finalizarAguardar();
         });
 }
+
+function buscarPistas(){
+    fetch('/pistas/buscarPistas')
+        .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+                    if(dados.length > 0){
+
+                       for(let i = 0; i < dados.length; i++){
+                        
+                       }
+                    }
+                });
+            }
+        })
+}
