@@ -1,6 +1,6 @@
 let database = require('../database/config');
 
-function buscarPista(){
+function buscarPistas(){
     console.log("ACESSEI O PISTA MODEL");
 
     let instrucaoSql = `
@@ -11,6 +11,18 @@ function buscarPista(){
     return database.executar(instrucaoSql);
 }
 
+function buscar(){
+    console.log("ACESSEI O PISTA MODEL");
+
+    let instrucaoSql = `
+        SELECT * FROM pista WHERE id = '${id}'
+    `;
+
+    console.log(`EXECUTANDO INSTRUÇÃO SQL: \n ${instrucaoSql}`);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    buscarPista
+    buscarPistas,
+    buscar
 }
