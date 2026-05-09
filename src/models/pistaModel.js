@@ -11,7 +11,7 @@ function buscarPistas(){
     return database.executar(instrucaoSql);
 }
 
-function buscar(){
+function buscar(id){
     console.log("ACESSEI O PISTA MODEL");
 
     let instrucaoSql = `

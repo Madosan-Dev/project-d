@@ -1,7 +1,7 @@
 let pistaModel = require('../models/pistaModel');
 
 function buscarPistas(req,res){
-    pistaModel.buscarPista()
+    pistaModel.buscarPistas()
                  .then(
                     function (resultado) {
                         res.json(resultado);
@@ -18,7 +18,7 @@ function buscarPistas(req,res){
                 );
 }
 
-function buscar(){
+function buscar(req,res){
     let id = req.params.id;
 
     if(id == undefined){
