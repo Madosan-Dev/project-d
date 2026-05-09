@@ -737,6 +737,23 @@ body{
     flex-direction: column;
 }
 
+#box_pistas button{
+    font-size: 2vh;
+    margin-top: 10%;
+    height: 5vh;
+    width: 30%;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 1px solid wheat;
+    background-color: var(--cor-botao);
+    color: wheat;
+}
+
+#box_pistas button:hover{
+    background-color: wheat;
+    color: var(--cor-botao);
+}
+
 #box_pistas p{
     color: wheat;
     font-size: 2vh;

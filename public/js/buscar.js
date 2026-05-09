@@ -141,6 +141,7 @@ function buscarPistas(){
 
 
                        for(let i = 0; i < dados.length; i++){
+                            let id = dados[i].id;
                             let urlFoto = dados[i].url_foto
                             let nome = dados[i].nome;
                             let desc = dados[i].descricao;
@@ -151,6 +152,7 @@ function buscarPistas(){
                                     <div>
                                         <h2>${nome}</h2>
                                         <p>${desc}</p>
+                                        <button onclick="redirecionaPista(${id})">Analisar</button>
                                     </div>
 
 
@@ -161,4 +163,38 @@ function buscarPistas(){
                 });
             }
         })
+}
+
+function redirecionaPista(id){
+    sessionStorage.ID_PISTA = id;
+
+    window.location = "corrida.html"
+}
+
+function buscarPistaCorrida(){
+    let id = sessionStorage.ID_PISTA;
+
+    fetch(`/pistas/buscar/${id}`)
+        .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+                   
+                    if(dados.length > 0){
+                       
+                    }else{
+                        document.getElementById('tela_escura').style.display = 'flex';
+    
+                        setTimeout(() => {
+                            window.location = "pistas.html";
+                        }, "2000");
+                    }
+                                                    
+                        
+                    
+
+                });
+            }
+        })   
 }
