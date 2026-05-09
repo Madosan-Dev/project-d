@@ -182,7 +182,75 @@ function buscarPistaCorrida(){
                 resposta.json().then(function (dados){
                    
                     if(dados.length > 0){
-                       
+                        let nome = dados[0].nome;
+                        let urlFoto = dados[0].url_foto;
+                        let inclinicao = dados[0].inclinacao;
+                        let sentidoInclinacao = dados[0].sentido_inclinacao;
+
+                        
+
+                        let linkInclinacao = '';
+
+                        if(sentidoInclinacao == 'subida'){
+                            linkInclinacao = '../assets/icones/placa_subindo.png'
+                        }else if (sentidoInclinacao == 'descida'){
+                            linkInclinacao = '../assets/icones/placa_descendo.png'
+                        }
+                        
+
+                       container_pista_corrida.innerHTML = `
+                            <div>
+                                <h1>${nome}</h1>
+                            </div>
+                            
+                            <div class="info_pista_corrida">
+                                <img src="${urlFoto}" alt="">
+                                <canvas id="grafico_corrida"></canvas>
+                            </div>
+
+                            <div class="condicao_corrida">
+
+                                <div class="box_corrida">
+                                    <h2>Condições da pista</h2>
+                                    <div>
+                                        <img src="${linkInclinacao}" alt="">
+
+                                        <img src="" alt="">
+                                    </div>
+                                    <div>
+                                        <h2></h2>
+
+                                        <select id="slt_clima" onchange="mudarClima()">
+                                            <option>Chuva Forte</option>
+                                            <option>Chuva</option>
+                                            <option>Limpo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="box_corrida" id='Condicao_pneu'>
+                                    <h2>Condições dos pneus</h2>
+                                    
+                                </div>
+
+                            </div>
+                            <div>
+
+                            </div>
+
+                            <button></button>
+
+                            <div>
+                                <img src="" alt="">
+                                
+                                <img src="" alt="">
+
+                                <select name="" id="">
+
+                                </select>
+                            </div>
+                                            
+                       `;
+                    corridaDashboard();
                     }else{
                         document.getElementById('tela_escura').style.display = 'flex';
     
@@ -197,4 +265,9 @@ function buscarPistaCorrida(){
                 });
             }
         })   
+}
+
+
+function mudarClima(){
+
 }

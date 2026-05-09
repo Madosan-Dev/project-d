@@ -1,4 +1,41 @@
+function corridaDashboard(){
+  const graficoRadar = document.getElementById('grafico_corrida');
 
+  new Chart(graficoRadar, {
+        type: 'radar',
+        data: {
+            labels: ['Probabilidade de vencer', 'Desvantagem', 'Acidente'],
+            datasets: [{
+                label: 'Probabilidade',
+                data: [20,5,6],
+                borderColor: 'wheat',
+                backgroundColor: 'rgba(245, 222, 179, 0.2)'
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    ticks: { color: 'wheat' },
+                    grid: { color: 'rgba(245, 222, 179, 0.2)' },
+                    suggestedMin: 0,
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                      color: 'wheat',
+                      font: {
+                        size: 15,
+                      }
+                    }
+                }
+            },
+            elements: {
+                line: { borderWidth: 3 }
+            }
+        }
+    });
+}
 
 
 function perfilDashboard(){
