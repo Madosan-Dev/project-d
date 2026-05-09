@@ -48,7 +48,9 @@ CREATE TABLE pneu(
 
 CREATE TABLE pista(
 	id INT PRIMARY KEY AUTO_INCREMENT,
+    url_foto TEXT NOT NULL,
     nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
     inclinacao DECIMAL(3,1),
     sentido_inclinacao VARCHAR(20),
 	CONSTRAINT ch_sentido_inclinacao
