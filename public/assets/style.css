@@ -528,7 +528,7 @@ body{
 
 .container-nome textarea{
     background-color: var(--cor-fundo-preto);
-    min-height: 20vh;
+    min-height: 25vh;
     width: 20vw;
     border: solid 1px var(--cor-fundo-preto);
     outline: none;
