@@ -139,8 +139,23 @@ function buscarPistas(){
                 resposta.json().then(function (dados){
                     if(dados.length > 0){
 
+
                        for(let i = 0; i < dados.length; i++){
-                        
+                            let urlFoto = dados[i].url_foto
+                            let nome = dados[i].nome;
+                            let desc = dados[i].descricao;
+
+                            pistas_container.innerHTML  += `
+                                <div id="box_pistas">
+                                    <img src="${urlFoto}" alt="Foto da Pista">
+                                    <div>
+                                        <h2>${nome}</h2>
+                                        <p>${desc}</p>
+                                    </div>
+
+
+                                </div>
+                            `;
                        }
                     }
                 });
