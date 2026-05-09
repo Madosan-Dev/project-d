@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project D / Corrida</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboards.js"></script>
     <script src="../js/atualizar.js"></script>
     <script src="../js/buscar.js"></script>
@@ -11,6 +12,21 @@
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body id="menu_corrida">
+     <header class="container-menu">
+        <img src="../assets/imgs/Project_d_logo.png" alt="Logo da Project D" id="logo">
+        
+        <div class="btn-head menu">
+            <a href="pistas.html" class="active">Pistas</a>
+            <a href="perfil.html" >Perfil do Piloto</a>
+            <a href="garagem.html">Garagem</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a onclick="abrirMenu()">Sair</a>
+        </div>
+    </header>
+
+    <div id="container_pista_corrida">
+        
+    </div>
 
 
 
