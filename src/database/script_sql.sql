@@ -7,6 +7,7 @@ CREATE TABLE usuario(
     url_foto TEXT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     descricao VARCHAR(500),
+    tipo_usuario VARCHAR(20) DEFAULT 'padrão',
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL
 );
@@ -108,6 +109,14 @@ CREATE TABLE historico_corrida(
 );
 
 
+-- Criando usuario admin conforme a regra de négocio, Ryosuke takahashi
+-- mude a id para deixar para o usuario ryosuke ser o admin
+UPDATE usuario SET tipo_usuario = 'admin'
+	WHERE id = '5';
+    
+
 SELECT * FROM usuario;
 
 SELECT * FROM carro;
+
+SELECT * FROM pista;
