@@ -693,3 +693,53 @@ body{
     margin-bottom: 10vh;
 }
 
+/* Menu de pistas */
+
+.pistas_section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30%;
+}
+.pistas_section h1{
+    color: white;
+    font-size: 8vh;
+    font-family: seibi;
+    margin-bottom: 2vh;
+}
+
+#box_pistas{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 2px wheat;
+}
+
+#box_pistas img{
+    border-radius: 10px;
+    height: 30vh;
+    width: 40vw;
+}
+
+#box_pistas h2{
+    text-align: center;
+    color: white;
+    font-size: 5vh;
+    font-family: seibi;
+    margin-bottom: 2vh;
+}
+
+#box_pistas div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#box_pistas p{
+    color: wheat;
+    font-size: 2vh;
+    width: 80%;
+}
+
