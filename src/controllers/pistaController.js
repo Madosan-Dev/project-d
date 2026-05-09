@@ -17,3 +17,7 @@ function buscarPista(req,res){
                     }
                 );
 }
+
+module.exports = {
+    buscarPista
+}

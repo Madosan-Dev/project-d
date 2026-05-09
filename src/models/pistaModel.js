@@ -10,3 +10,7 @@ function buscarPista(){
     console.log(`EXECUTANDO INSTRUÇÃO SQL: \n ${instrucaoSql}`);
     return database.executar(instrucaoSql);
 }
+
+module.exports = {
+    buscarPista
+}
