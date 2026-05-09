@@ -3,11 +3,22 @@ function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var nomeUsuario = document.getElementById("nome_usuario");
-
     if (email == null && nome == null) {
         window.location = "../login.html";
     } 
+}
+
+function validarSessaoPerfil() {
+    let email = sessionStorage.EMAIL_USUARIO;
+    let nome = sessionStorage.NOME_USUARIO;
+
+    let nomeUsuario = document.getElementById("nome_usuario");
+
+    if (email == null && nome == null) {
+        window.location = "../login.html";
+    }else{
+        nomeUsuario.innerHTML = nome;
+    }
 }
 
 function verificarLogado(){
