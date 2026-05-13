@@ -11,7 +11,7 @@ router.post("/cadatrar",function(req,res){
     pneuController.cadastrar(req,res);
 })
 
-router.put("/atualizar", function(req,res){
+router.put("/atualizar/:idPneu", function(req,res){
     pneuController.atualizar(req,res);
 })
 
