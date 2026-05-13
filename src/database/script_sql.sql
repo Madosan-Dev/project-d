@@ -29,7 +29,7 @@ CREATE TABLE carro(
 
 CREATE TABLE pneu(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    desgaste DECIMAL(5,2) NOT NULL,
+    condicao_pneu DECIMAL(5,2) NOT NULL,
     tipo VARCHAR(45) NOT NULL,
     posicao VARCHAR(45) NOT NULL,
     fk_carro INT,
@@ -116,6 +116,8 @@ UPDATE usuario SET tipo_usuario = 'admin'
     
 
 SELECT * FROM usuario;
+
+SELECT * FROM pneu;
 
 SELECT * FROM carro;
 
