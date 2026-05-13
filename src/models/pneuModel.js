@@ -4,7 +4,7 @@ function buscar(id){
     console.log("ACESSEI O PNEU MODEL");
 
     let instrucaoSql = `
-        SELECT * FROM pneu WHERE id = '${id}';
+        SELECT * FROM pneu WHERE fkCarro = '${id}';
     `;
 
     console.log(`EXECUTANDO INSTRUÇÃO SQL: \n ${instrucaoSql}`);
@@ -34,7 +34,7 @@ function atualizar(condicao,tipo,idPneu){
         UPDATE pneu 
         SET 
             condicao_pneu = ${condicao},
-            tipo = ${tipo}
+            tipo = '${tipo}'
         WHERE
             id = ${idPneu};
     `;

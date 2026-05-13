@@ -17,11 +17,10 @@
     <header class="container-menu">
         <img src="../assets/imgs/Project_d_logo.png" alt="Logo da Project D" id="logo">
         
-        <div class="btn-head menu">
+        <div class="btn-head menu" id="btn_menu">
             <a href="pistas.html" >Pistas</a>
             <a href="perfil.html" class="active">Perfil do Piloto</a>
             <a href="garagem.html">Garagem</a>
-            <a href="dashboard.html">Dashboard</a>
             <a onclick="abrirMenu()">Sair</a>
         </div>
     </header>
@@ -63,4 +62,5 @@
     inserirFoto();
     perfilDashboard();
     buscarDescricao();
+    validarSessaoAdmin('perfil')
 </script>

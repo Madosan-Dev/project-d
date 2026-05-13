@@ -243,6 +243,7 @@ function logar(){
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.TIPO_USUARIO = json.tipo_usuario;
 
                     setTimeout(function () {
                         window.location = "./dashboard/perfil.html";

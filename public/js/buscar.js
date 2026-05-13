@@ -55,6 +55,8 @@ function carregarDados(){
                             }else if(tracao == 'FF'){
                                 tracaoFormatado = 'Dianteira';
                             }
+
+                            dados_carro.style = `block`;
     
                             dados_carro.innerHTML = `
                             <h2>Dados do Carro</h2>

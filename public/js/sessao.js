@@ -21,6 +21,56 @@ function validarSessaoPerfil() {
     }
 }
 
+
+function validarSessaoAdmin(pagina) {
+    let tipo = sessionStorage.TIPO_USUARIO;
+
+    if (tipo == 'admin') {
+
+        if(pagina == 'dash'){
+            btn_menu.innerHTML = `
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="pistas.html">Pistas</a>
+                <a href="perfil.html">Perfil do Piloto</a>
+                <a href="garagem.html">Garagem</a>
+                <a onclick="abrirMenu()">Sair</a>`;
+        }
+        else if(pagina == 'pistas'){
+            btn_menu.innerHTML = `
+                <a href="dashboard.html">Dashboard</a>
+                <a href="pistas.html" class="active">Pistas</a>
+                <a href="perfil.html">Perfil do Piloto</a>
+                <a href="garagem.html">Garagem</a>
+                <a onclick="abrirMenu()">Sair</a>`;
+        }
+        else if(pagina == 'perfil'){
+            btn_menu.innerHTML = `
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="pistas.html">Pistas</a>
+                    <a href="perfil.html" class="active">Perfil do Piloto</a>
+                    <a href="garagem.html">Garagem</a>
+                    <a onclick="abrirMenu()">Sair</a>`;
+        }
+        else if(pagina == 'corrida'){
+            btn_menu.innerHTML = `
+                <a href="dashboard.html">Dashboard</a>
+                <a href="pistas.html" class="active">Pistas</a>
+                <a href="perfil.html">Perfil do Piloto</a>
+                <a href="garagem.html">Garagem</a>
+                <a onclick="abrirMenu()">Sair</a>`;
+        }
+        else if(pagina == 'garagem'){
+             btn_menu.innerHTML = `
+                <a href="dashboard.html">Dashboard</a>
+                <a href="pistas.html">Pistas</a>
+                <a href="perfil.html">Perfil do Piloto</a>
+                <a href="garagem.html" class="active">Garagem</a>
+                <a onclick="abrirMenu()">Sair</a>`;
+        }
+    }
+}
+
+
 function verificarLogado(){
     const btnLog = document.getElementById('btn_login');
     const btnCad = document.getElementById('btn_cad');

@@ -15,11 +15,10 @@
      <header class="container-menu">
         <img src="../assets/imgs/Project_d_logo.png" alt="Logo da Project D" id="logo">
         
-        <div class="btn-head menu">
+        <div class="btn-head menu" id="btn_menu">
             <a href="pistas.html" class="active">Pistas</a>
             <a href="perfil.html" >Perfil do Piloto</a>
             <a href="garagem.html">Garagem</a>
-            <a href="dashboard.html">Dashboard</a>
             <a onclick="abrirMenu()">Sair</a>
         </div>
     </header>
@@ -41,4 +40,5 @@
 </html>
 <script>
     buscarPistaCorrida();
+    validarSessaoAdmin('corrida')
 </script>
