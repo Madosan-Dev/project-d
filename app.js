@@ -17,8 +17,9 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var carroRouter = require("./src/routes/carros");
+let carroRouter = require("./src/routes/carros");
 let pistaRouter = require("./src/routes/pistas");
+let pneuRouter = require("./src/routes/pneus");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,7 +30,8 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/carros",carroRouter);
-app.use('/pistas', pistaRouter)
+app.use('/pistas', pistaRouter);
+app.use('/pneus/', pneuRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
