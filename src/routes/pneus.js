@@ -7,7 +7,7 @@ router.get("/buscar/:idCarro", function (req,res){
     pneuController.buscar(req,res);
 });
 
-router.post("/cadatrar",function(req,res){
+router.post("/cadastrar/",function(req,res){
     pneuController.cadastrar(req,res);
 })
 

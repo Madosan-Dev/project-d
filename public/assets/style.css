@@ -758,7 +758,7 @@ body{
     color: white;
 }
 
-/* MENU SAIR */
+/* MENU SAIR E PNEU*/
 
 .tela_escura{
     position: fixed;
@@ -786,6 +786,56 @@ body{
     border-radius: 10vh;
     border: 1px solid rgba(245, 222, 179, 0.2);
 }
+
+.menu_destaque.cad_pneu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    height: 80vh;
+    width: 50vw;
+    border-radius: 10vh;
+    border: 1px solid rgba(245, 222, 179, 0.2);
+}
+
+.container_pneu{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+.cad_pneu select{
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+    text-align: center;
+    padding: 1vh;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 2vh;
+    margin: 2vh 0 2vh 0;
+    font-size: 18px;
+    outline: none;
+}
+
+.cad_pneu p{
+    text-align: center;
+    color: var(--cor-texto);
+    width: 30vw;
+    font-size: 2vh;
+}
+.cad_pneu img{
+    height: 30vh;
+    width: 15vw;
+    border-radius: 5vh;
+    margin-left: 2vh;
+    text-align: center;
+    color: var(--cor-texto);
+}
+
+
 
 .menu_destaque h2{
     color: var(--cor-texto);

@@ -7,6 +7,8 @@
     <script src="../js/buscar.js"></script>
     <script src="../js/sessao.js"></script>
     <script src="../js/menus.js"></script>
+    <script src="../js/validacoes.js"></script>
+    <script src="../js/inserir.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="shortcut icon" href="../assets/imgs/Project_d_icon.png" type="image/x-icon">
 </head>
@@ -51,11 +53,31 @@
 
     <div id="tela_pneu" class="tela_escura overlay" style="display:none;">
         <div class="menu_destaque cad_pneu">
-            <h2>Deseja realmente sair?</h2>
+            <h2>Cadastrar Pneu</h2>
+
+            <div class="container_pneu">    
+                <div>
+                    <p>Selecione o tipo de Pneu:</p>
+                    <select id="slt_pneu" onchange="mudarFotoDesc()">
+                        <option selected>Rally</option>
+                        <option>Semi-slick</option>
+                        <option>Slick</option>
+                    </select>
+                    <p id="descricao_pneu">
+                        Os pneus de rally são projetados para máxima aderência e durabilidade em condições extremas, com compostos duros ou macios, laterais reforçadas para suportar impactos (como cascalho) e blocos profundos para tração na terra. Eles oferecem alta estabilidade lateral e aderência em superfícies molhadas ou secas, sendo essenciais para a segurança e desempenho em alta velocidade.
+                    </p>
+                </div>
+                <div id="img_pneu">
+                     <img src="../assets/imgs/pneu_rally.jpg" alt="">
+                </div>
+            </div>
+
 
             <div class="btn-head">
-                <a onclick="fecharMenuPneu()">Não</a>
+                <a onclick="cadastrarPneu()">Cadastrar Pneu</a>
+                <a onclick="fecharMenuPneu()">Cancelar</a>
             </div>
+            <div id="div_mensagem"></div>
         </div>
     </div>
 
