@@ -25,7 +25,7 @@ function buscar(req,res){
 }
 
 function cadastrar(req,res){
-    let condicao = req.body.desgasteServer;
+    let condicao = req.body.condicao;
     let tipo = req.body.tipoServer;
     let fkCarro = req.body.idCarro;
 
@@ -37,7 +37,7 @@ function cadastrar(req,res){
         res.status(200).send("O fkCarro está undefined");
     }else{
         pneuModel.cadastrar(condicao,tipo,fkCarro)
-            then(
+            .then(
                 function (resultado){
                     res.json(resultado);
                 }

@@ -17,10 +17,10 @@ function cadastrar(condicao,tipo,fkCarro){
     let instrucaoSql = `
         INSERT INTO pneu (condicao_pneu,tipo,posicao,fk_carro)
         VALUES
-        (${condicao},'${tipo}','Dianteira Direita',${fkCarro}),
         (${condicao},'${tipo}','Dianteira Esquerda',${fkCarro}),
-        (${condicao},'${tipo}','Traseira Direita',${fkCarro}),
-        (${condicao},'${tipo}','Traseira Esquerda',${fkCarro});
+        (${condicao},'${tipo}','Dianteira Direita',${fkCarro}),
+        (${condicao},'${tipo}','Traseira Esquerda',${fkCarro}),
+        (${condicao},'${tipo}','Traseira Direita',${fkCarro});
     `;
 
     console.log(`EXECUTANDO INSTRUÇÃO SQL: \n ${instrucaoSql}`);
