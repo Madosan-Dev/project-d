@@ -6,7 +6,7 @@ function buscar(req,res){
     if(idCarro == undefined){
         res.status(200).send("O id está undefined");
     }else{
-        pneuModel.buscar(id)
+        pneuModel.buscar(idCarro)
             .then(
                 function (resultado){
                     res.json(resultado);

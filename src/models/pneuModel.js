@@ -1,10 +1,10 @@
 let database = require("../database/config");
 
-function buscar(id){
+function buscar(idCarro){
     console.log("ACESSEI O PNEU MODEL");
 
     let instrucaoSql = `
-        SELECT * FROM pneu WHERE fkCarro = '${id}';
+        SELECT * FROM pneu WHERE fk_carro = ${idCarro} ORDER BY id ASC;
     `;
 
     console.log(`EXECUTANDO INSTRUÇÃO SQL: \n ${instrucaoSql}`);
