@@ -620,16 +620,111 @@ body{
 #div_foto a:hover{
     background-color: var(--cor-texto);
     color: var(--cor-botao);
+    cursor: pointer;
+}
+
+.container_dados{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.container_dados_pneu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    border-radius: 10vh;
+    width: 25vw;
+    margin-right: 2vw;
+    background-color: rgb(48, 47, 47);
+    border: 2px solid var(--cor-texto);
+}
+.container_dados_pneu h2{
+    color: var(--cor-texto);
+    font-size: 3vh;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.container_dados_pneu a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    height: 5vh;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 1px solid var(--cor-texto);
+    background-color: var(--cor-fundo-preto);
+    color: var(--cor-texto);
+}
+
+.container_dados_pneu a:hover{
+    background-color: var(--cor-texto);
+    color: var(--cor-botao);
+    cursor: pointer;
+}
+
+
+#dianteira{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 14vh;
+}
+#dianteira span{
+    color: var(--cor-texto);
+    font-size: 2vh;
+}
+
+#traseira{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 6vh;
+}
+#traseira span{
+    color: var(--cor-texto);
+    font-size: 2vh;
+}
+
+.eixo{
+    height: 1vw;
+    width: 8vw;
+    background-color: gray;
+}
+
+.carda{
+    position: absolute;
+    height: 20vh;
+    width: 1vw;
+    background-color: gray;
+}
+
+.pneu{
+    display: flex;
+    justify-content: center;
+    width: 2vw;
+    border-radius: 10%;
+    height: 6vh;
+    margin: 0 1vh 0 1vh;
+    align-items: center;
+}
+
+.pneu p{
+    color: white;
 }
 
 .container_dados_carro{
     display: flex;
     flex-direction: column;
-    height: 35vh;
+    height: 40vh;
     border-radius: 10vh;
-    width: 40%;
-    align-self: flex-end;
-    margin-right: 10%;
+    width: 25vw;
     background-color: rgb(48, 47, 47);
     border: 2px solid var(--cor-texto);
 }
@@ -639,6 +734,7 @@ body{
     font-size: 4vh;
     text-align: center;
 }
+
 
 .info{
     display: flex;
@@ -664,7 +760,7 @@ body{
 
 /* MENU SAIR */
 
-#tela_escura{
+.tela_escura{
     position: fixed;
     top: 0;
     left: 0;
@@ -676,6 +772,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 
 .menu_destaque{
     display: flex;

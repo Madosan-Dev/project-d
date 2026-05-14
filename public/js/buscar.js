@@ -1,3 +1,4 @@
+
 function buscarCarro(){
     let idUsuario = sessionStorage.ID_USUARIO;
 
@@ -9,6 +10,7 @@ function buscarCarro(){
                     resposta.json().then(function (dados){
 
                         if(dados.length > 0){
+
                             let link = dados[0].url_foto;
     
                             div_foto.innerHTML = `<img src="${link}" class="foto_carro"  onerror="this.onerror=null; this.src='assets/icones/foto_invalida.png';">`;
@@ -41,6 +43,7 @@ function carregarDados(){
                     resposta.json().then(function (dados){
 
                         if(dados.length > 0){
+                            sessionStorage.ID_CARRO = dados[0].id;
                             let modelo = dados[0].modelo;
                             let marca = dados[0].marca;
                             let cavalos = dados[0].cavalos;
@@ -84,6 +87,7 @@ function carregarDados(){
                                 </div>
                             </div>
                             `;
+                            buscarPneu();
                         }
 
                     });
@@ -272,4 +276,107 @@ function buscarPistaCorrida(){
 
 function mudarClima(){
 
+}
+
+function buscarPneu(){
+    let idCarro = sessionStorage.ID_CARRO;
+
+    fetch(`/pneus/buscar/${idCarro}`)
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    resposta.json().then(function (dados){
+
+                        if(dados.length > 0){
+                            let posicao = [];
+                            let tipo = '';
+                            let condicaoPneu = [];
+
+                            console.log(dados);
+                            
+                            for(let i = 0; i < dados.length; i++){
+                                condicaoPneu.push(dados[i].condicao_pneu);
+                                tipo = dados[i].tipo;
+                                posicao.push(dados[i].posicao);
+                            }
+
+                            dados_pneu.style = 'block';
+
+                            dados_pneu.innerHTML = `
+                                <div>
+                                    <h2>Tipo de Pneu: ${tipo}</h2>
+                                </div>
+                                   
+                          
+                                    <div id="dianteira">
+                                        <span>Dianteiro <br> Esquerdo</span>
+                                        <div id="dianteira_esquerda" class="pneu"><p>${parseInt(condicaoPneu[0])}%</p></div>
+                                        <div class="eixo"></div>
+                                        <div id="dianteira_direita" class="pneu"><p>${parseInt(condicaoPneu[1])}%</p></div>
+                                        <span>Dianteiro. <br> Direito</span>
+                                    </div>
+
+                                    <div class="carda"></div>
+
+                                    <div id="traseira">
+                                        <span>Traseiro. <br> Esquerdo</span>
+                                        <div id="traseira_esquerda" class="pneu"><p>${parseInt(condicaoPneu[2])}%</p></div>
+                                        <div class="eixo"></div>
+                                        <div id="traseira_direita" class="pneu"><p>${parseInt(condicaoPneu[3])}%</p></div>
+                                        <span>Traseiro. <br> Direito</span>
+                                    </div>
+                                
+                            `;
+
+                            if(condicaoPneu[0] < 40){
+                                dianteira_esquerda.classList.add("fraca");
+                            }else if(condicaoPneu[0] < 70){
+                                dianteira_esquerda.classList.add("media");
+                            }else{
+                                dianteira_esquerda.classList.add("forte");
+                            }
+
+                             if(condicaoPneu[1] < 40){
+                                dianteira_direita.classList.add("fraca");
+                            }else if(condicaoPneu[1] < 70){
+                                dianteira_direita.classList.add("media");
+                            }else{
+                                dianteira_direita.classList.add("forte");
+                            }
+
+                             
+                            if(condicaoPneu[2] < 40){
+                                traseira_esquerda.classList.add("fraca");
+                            }else if(condicaoPneu[2] < 70){
+                                traseira_esquerda.classList.add("media");
+                            }else{
+                                traseira_esquerda.classList.add("forte");
+                            }
+                            
+                            if(condicaoPneu[3] < 40){
+                                traseira_direita.classList.add("fraca");
+                            }else if(condicaoPneu[3] < 70){
+                                traseira_direita.classList.add("media");
+                            }else{
+                                traseira_direita.classList.add("forte");
+                            }
+
+                        }else if(idCarro != undefined){
+                            dados_pneu.style = 'block';
+                            dados_pneu.innerHTML = `
+                            <h2>Você ainda não tem Pneu Cadastrado</h2>
+                            <br>
+                                <a onclick="abrirMenuPneu()">Cadastre aqui!</a> `;
+                        } 
+
+                    });
+                } else {
+                throw "Houve um erro ao buscar os dados!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
 }

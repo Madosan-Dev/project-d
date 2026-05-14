@@ -6,7 +6,7 @@
     <title>Project D / Garagem</title>
     <script src="../js/buscar.js"></script>
     <script src="../js/sessao.js"></script>
-    <script src="../js/menuSair.js"></script>
+    <script src="../js/menus.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="shortcut icon" href="../assets/imgs/Project_d_icon.png" type="image/x-icon">
 </head>
@@ -29,15 +29,17 @@
 
             </div>
         </div>
-        <div>
-
-        </div>
-        <div class="container_dados_carro" id="dados_carro" style="display: none;">
-            
+        <div class="container_dados">
+            <div class="container_dados_pneu" id="dados_pneu" style="display: none;">
+    
+            </div>
+            <div class="container_dados_carro" id="dados_carro" style="display: none;">
+                
+            </div>
         </div>
     </main>
 
-    <div id="tela_escura" class="overlay" style="display:none;">
+    <div id="tela_sair" class="tela_escura overlay" style="display:none;">
         <div class="menu_destaque">
             <h2>Deseja realmente sair?</h2>
             <div class="btn-head">
@@ -46,11 +48,22 @@
             </div>
         </div>
     </div>
+
+    <div id="tela_pneu" class="tela_escura overlay" style="display:none;">
+        <div class="menu_destaque cad_pneu">
+            <h2>Deseja realmente sair?</h2>
+
+            <div class="btn-head">
+                <a onclick="fecharMenuPneu()">Não</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 <script>
     buscarCarro();
     carregarDados();
     validarSessao();
-    validarSessaoAdmin('garagem')
+    validarSessaoAdmin('garagem');
 </script>
