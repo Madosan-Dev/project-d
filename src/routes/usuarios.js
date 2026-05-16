@@ -20,4 +20,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/buscarFoto/:idCorredor", function (req, res){
+    usuarioController.buscarFotoCorredor(req,res);
+})
+
+router.get("/buscar", function (req,res){
+    usuarioController.buscarCorredores(req,res)
+})
+
 module.exports = router;

@@ -49,9 +49,38 @@ function buscarDescricao(idUsuario){
     return database.executar(instrucaoSql);
 }
 
+function buscarFotoCorredor(idCorredor){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarFotoCorredor():");
+
+    let instrucaoSql = `
+        SELECT 
+            url_foto
+        FROM
+            usuario
+        WHERE id = '${idCorredor}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarCorredores(){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarFotoCorredor():");
+
+    let instrucaoSql = `
+        SELECT 
+            *
+        FROM
+            usuario;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     atualizarDescricao,
-    buscarDescricao
+    buscarDescricao,
+    buscarFotoCorredor,
+    buscarCorredores
 };

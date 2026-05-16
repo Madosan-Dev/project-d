@@ -129,9 +129,58 @@ function buscarDescricao(req,res){
     }
 }
 
+function buscarFotoCorredor(req,res){
+    let idCorredor = req.params.idCorredor;
+
+    if(idCorredor == undefined){
+        res.status(400).send("O idUsuario está undefined");
+    }else{
+        usuarioModel.buscarFotoCorredor(idCorredor)
+            .then(
+                function (resultado){
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro){
+                    console.log(erro);
+                   console.log(
+                        "\nHouve um erro ao buscar a foto! Erro: ",
+                         erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            )
+    }
+}
+
+function buscarCorredores(req,res){
+
+        usuarioModel.buscarCorredores()
+            .then(
+                function (resultado){
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro){
+                    console.log(erro);
+                   console.log(
+                        "\nHouve um erro ao buscar os corredores! Erro: ",
+                         erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            )
+}
+
+
+
+
+
 module.exports = {
     autenticar,
     cadastrar,
     atualizarDescricao,
-    buscarDescricao
+    buscarDescricao,
+    buscarFotoCorredor,
+    buscarCorredores
 }
