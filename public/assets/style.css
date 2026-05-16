@@ -673,6 +673,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-bottom: 14vh;
 }
 #dianteira span{
@@ -685,6 +686,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-bottom: 6vh;
 }
 #traseira span{
@@ -703,6 +705,7 @@ body{
     height: 20vh;
     width: 1vw;
     background-color: gray;
+    margin: 0 auto;
 }
 
 .pneu{
@@ -717,7 +720,7 @@ body{
 
 .pneu p{
     color: white;
-    font-size: 2vh;
+    font-size: 1.5vh;
 }
 
 .container_dados_carro{
@@ -861,7 +864,9 @@ body{
 
 
 .condicao_corrida{
-    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 #box_pistas{
@@ -1007,7 +1012,7 @@ body{
     padding: 20px;
     border-radius: 20px;
     width: 30vw;
-    border: solid 2px var(--cor-texto);
+    border: 0.2vh solid var(--cor-texto);
 }
 
 .box_corrida h2{
@@ -1028,8 +1033,11 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    border: 0.2vh solid var(--cor-texto);
+    border-radius: 5vh;
+    width: 63vw;
 }
+
 
 .box_corredores img{
     border-radius: 50%;
@@ -1037,6 +1045,42 @@ body{
     object-position: center;
     height: 40vh;
     margin: 0 2vh 0 2vh;
+}
+
+.box_corredores h3{
+    color: var(--cor-texto);
+    margin-right: 2vw;
+}
+
+.box_corredores select{
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+    text-align: center;
+    padding: 1vh;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 2vh;
+    font-size: 18px;
+    outline: none;
+}
+.box_corredores.slt{
+    height: 20vh;
+    justify-content: center;
+}
+
+.box_corredores.slt button{
+    font-size: 2vh;
+    height: 5vh;
+    width: 20%;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 1px solid var(--cor-texto);
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+}
+.box_corredores.slt button:hover{
+   background-color: var(--cor-texto);
+   color: var(--cor-botao);
 }
 
 #img_bandeira{

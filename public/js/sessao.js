@@ -36,6 +36,16 @@ function validarSessaoAdmin(pagina) {
                 <a onclick="abrirMenu()">Sair</a>`;
         }
         else if(pagina == 'pistas'){
+
+            pistas_container.innerHTML += `<div id="box_pistas">
+                                    
+                                    <div>
+                                        <p>Deseja cadastrar uma nova pista?</p> 
+                                        <button onclick="">Cadastrar</button>
+                                    </div>
+                            `;
+                            
+
             btn_menu.innerHTML = `
                 <a href="dashboard.html">Dashboard</a>
                 <a href="pistas.html" class="active">Pistas</a>
