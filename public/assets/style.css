@@ -717,6 +717,7 @@ body{
 
 .pneu p{
     color: white;
+    font-size: 2vh;
 }
 
 .container_dados_carro{
@@ -858,11 +859,17 @@ body{
     margin-bottom: 2vh;
 }
 
+
+.condicao_corrida{
+    height: 50vh;
+}
+
 #box_pistas{
     display: flex;
     flex-direction: row;
     margin: 10px;
     padding: 20px;
+    height: 40vh;
     border-radius: 20px;
     border: solid 2px var(--cor-texto);
 }
@@ -887,6 +894,18 @@ body{
     flex-direction: column;
 }
 
+.box_corrida div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box_corrida h3{
+    margin-left: 3vw;
+    font-size: 2vh;
+    color: var(--cor-texto);
+}
+
 #box_pistas button{
     font-size: 2vh;
     margin-top: 10%;
@@ -909,7 +928,18 @@ body{
     font-size: 2vh;
     width: 80%;
 }
-
+.box_corrida.pneu_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box_corrida.pneu_box h2{
+    color: var(--cor-texto);
+    font-size: 3vh;
+    text-align: center;
+    margin-bottom: 2vh;
+}
 /* MENU de corridas */
 
 #container_pista_corrida{

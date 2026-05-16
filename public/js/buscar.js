@@ -190,16 +190,16 @@ function buscarPistaCorrida(){
                     if(dados.length > 0){
                         let nome = dados[0].nome;
                         let urlFoto = dados[0].url_foto;
-                        let inclinicao = dados[0].inclinacao;
+                        let inclinacao = dados[0].inclinacao;
                         let sentidoInclinacao = dados[0].sentido_inclinacao;
 
                         
 
                         let linkInclinacao = '';
 
-                        if(sentidoInclinacao == 'subida'){
+                        if(sentidoInclinacao == 'Subida'){
                             linkInclinacao = '../assets/icones/placa_subindo.png'
-                        }else if (sentidoInclinacao == 'descida'){
+                        }else if (sentidoInclinacao == 'Descida'){
                             linkInclinacao = '../assets/icones/placa_descendo.png'
                         }
                         
@@ -221,19 +221,21 @@ function buscarPistaCorrida(){
                                     <div>
                                         <img src="${linkInclinacao}" alt="">
 
-                                        <img src="" alt="">
+                                        <div id="img_clima">
+                                        </div>
                                     </div>
                                     <div>
-                                        <h2></h2>
+                                        <h3>${inclinacao}%</h3>
 
                                         <select id="slt_clima" onchange="mudarClima()">
+                                            <option selected disabled>Selecione um clima</option>
                                             <option>Chuva Forte</option>
                                             <option>Chuva</option>
                                             <option>Limpo</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="box_corrida" id='Condicao_pneu'>
+                                <div class="box_corrida pneu_box" id='dados_pneu'>
                                     <h2>Condições dos pneus</h2>
                                     
                                 </div>
@@ -275,7 +277,15 @@ function buscarPistaCorrida(){
 
 
 function mudarClima(){
+    let clima = slt_clima.value;
 
+    if(clima == 'Chuva'){
+        img_clima.innerHTML = `<img src="../assets/imgs/chuva.png">`;
+    }else if(clima == 'Chuva Forte'){
+        img_clima.innerHTML = `<img src="../assets/imgs/chuva-pesada.png">`;
+    }else if(clima == 'Limpo'){        
+        img_clima.innerHTML = `<img src="../assets/imgs/clima.png">`;
+    }
 }
 
 function buscarPneu(){

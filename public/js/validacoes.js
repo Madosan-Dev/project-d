@@ -430,20 +430,20 @@ function mudarFotoDesc(){
         laterais reforçadas para suportar impactos (como cascalho) e blocos profundos para tração na terra. 
         Eles oferecem alta estabilidade lateral e aderência em superfícies molhadas ou secas, sendo essenciais para a segurança e desempenho em alta velocidade.`;
         img_pneu.innerHTML = `
-        <img src="../assets/imgs/pneu_rally.jpg"/>
+        <img src="../assets/imgs/pneu_rally.jpg" alt="Pneu de Rally"/>
         `;
     }else if(pneu == 'Semi-slick'){
         descricao_pneu.innerHTML = `Pneus semi-slick são pneus de alto desempenho com banda de rodagem de poucos sulcos (quase lisa), projetados para máxima aderência em asfalto seco. 
         Situam-se entre os pneus de rua comuns e os "slicks" (totalmente lisos de pista), 
         sendo ideais para track days e uso esportivo, oferecendo carcaça rígida e composto de borracha mais macio`;
         img_pneu.innerHTML = `
-        <img src="../assets/imgs/pneu_semi_slick.webp"/>
+        <img src="../assets/imgs/pneu_semi_slick.webp" alt="Pneu Semi Slick"/>
         `;
     }else if(pneu == 'Slick'){
         descricao_pneu.innerHTML = `O pneu slick é um pneu de alta performance, totalmente liso e sem sulcos, projetado exclusivamente para uso em pistas secas, garantindo aderência máxima. Sua borracha macia, 
         que se torna extremamente aderente ao aquecer, maximiza a área de contato com o solo. É ideal para competições, mas perigoso em ruas molhadas por não escoar água`;
         img_pneu.innerHTML = `
-        <img src="../assets/imgs/pneu_slick.webp"/>
+        <img src="../assets/imgs/pneu_slick.webp" alt="Pneu Slick"/>
         `;
     }
 }
