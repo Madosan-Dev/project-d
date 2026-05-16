@@ -51,6 +51,9 @@ function carregarDados(){
                             let peso = dados[0].peso;
                             let tracaoFormatado = '';
 
+                            sessionStorage.CV_CARRO = cavalos;
+                            sessionStorage.PESO_CARRO = peso;
+
                             if(tracao == 'AWD'){
                                 tracaoFormatado = 'Integral';
                             }else if(tracao == 'FR'){
@@ -195,9 +198,11 @@ function buscarPistaCorrida(){
                         let sentidoInclinacao = dados[0].sentido_inclinacao;
 
                         
-
                         let linkInclinacao = '';
                         sentidoInclinacao = sentidoInclinacao.toLowerCase();
+                        
+                        sessionStorage.INCLINACAO_PISTA = inclinacao;
+                        sessionStorage.SENTIDO_PISTA = sentidoInclinacao;
 
                         if(sentidoInclinacao == 'subida'){
                             linkInclinacao = '../assets/icones/placa_subindo.png'
@@ -246,7 +251,9 @@ function buscarPistaCorrida(){
                             </div>
                             <div class="condicao_perfil">
                                 <div class="box_corredores">
+                                    
                                     <img src="${fotoPerfil}" alt="">
+                                    
 
                                     <img src="../assets/icones/bandeira-de-corrida.png" id="img_bandeira">
                                     
@@ -254,17 +261,21 @@ function buscarPistaCorrida(){
                                     </div>
 
                                 </div>
-                                <div>
-                                    <select id="slt_adversario" onchange="buscarFotoCorredor()">
+                                <div class="box_corredores slt">
+                                    <div>
+                                        <h3>Escolha um Adversario:</h3>
 
-                                    </select>
+                                        <select id="slt_adversario" onchange="buscarFotoCorredor()">
+                                        
+                                        </select>
+                                    </div>
                                     
+                                    <button>Simular</button>
                                 </div>
-                                
                             </div>
+
                                             
                        `;
-                    corridaDashboard();
                     }else{
                         document.getElementById('tela_escura').style.display = 'flex';
     
@@ -455,4 +466,70 @@ function buscarPneu(){
                 console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
         });
+}
+
+function buscarDashboardProbabilidade(){
+    let idUsuario = sessionStorage.ID_USUARIO;
+    let idCarro = 0;
+    let sentidoIncli = sessionStorage.SENTIDO_PISTA;
+    let peso = 0;
+    let cv = 0;
+    let pneus = [];
+
+     fetch(`/carros/buscar/${idUsuario}`)
+        .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+                    if(dados.length > 0){
+                        idCarro = dados[0].id;
+                        cavalos = dados[0].cavalos;
+                        peso = dados[0].peso;
+                        sessionStorage.ID_CARRO = idCarro;
+                        
+                        fetch(`/pneus/buscar/${idCarro}`)
+                        .then(function (resposta) {
+                            console.log("resposta: ", resposta);
+                            
+                            if (resposta.ok) {
+                                resposta.json().then(function (dados){
+                                    
+                                    if(dados.length > 0){
+                                        for(let i = 0; i < dados.length; i++){
+                                            pneus.push(dados[i].condicao_pneu);
+                                        }
+                                                
+                                                    let infoGrafico = probabilidadeGrafico(sentidoIncli,pneus,cv,peso);
+                            
+                                                    corridaDashboard(infoGrafico);
+                                                    buscarPneu();
+                                                }
+                                                
+                                            });
+                                        } else {
+                                        throw "Houve um erro ao buscar os dados!";
+                                        }
+                                    })
+                                    .catch(function (resposta) {
+                                        console.log(`#ERRO: ${resposta}`);
+                                        finalizarAguardar();
+                        });
+
+
+                    }else{
+                        
+                    }
+                });
+
+            }
+            
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+
+
+    
+
 }

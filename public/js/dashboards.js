@@ -1,5 +1,7 @@
-function corridaDashboard(){
+function corridaDashboard(infoGrafico){
   const graficoRadar = document.getElementById('grafico_corrida');
+
+  console.log(infoGrafico);
 
   new Chart(graficoRadar, {
         type: 'radar',
@@ -7,7 +9,7 @@ function corridaDashboard(){
             labels: ['Probabilidade de vencer', 'Desvantagem', 'Acidente'],
             datasets: [{
                 label: 'Probabilidade',
-                data: [20,5,6],
+                data: infoGrafico,
                 borderColor: 'wheat',
                 backgroundColor: 'rgba(245, 222, 179, 0.2)'
             }]
@@ -18,6 +20,7 @@ function corridaDashboard(){
                     ticks: { color: 'wheat' },
                     grid: { color: 'rgba(245, 222, 179, 0.2)' },
                     suggestedMin: 0,
+                    suggestedMax: 15
                 }
             },
             plugins: {
