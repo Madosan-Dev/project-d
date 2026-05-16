@@ -190,16 +190,18 @@ function buscarPistaCorrida(){
                     if(dados.length > 0){
                         let nome = dados[0].nome;
                         let urlFoto = dados[0].url_foto;
+                        let fotoPerfil = sessionStorage.LINK_USUARIO;
                         let inclinacao = dados[0].inclinacao;
                         let sentidoInclinacao = dados[0].sentido_inclinacao;
 
                         
 
                         let linkInclinacao = '';
+                        sentidoInclinacao = sentidoInclinacao.toLowerCase();
 
-                        if(sentidoInclinacao == 'Subida'){
+                        if(sentidoInclinacao == 'subida'){
                             linkInclinacao = '../assets/icones/placa_subindo.png'
-                        }else if (sentidoInclinacao == 'Descida'){
+                        }else if (sentidoInclinacao == 'descida'){
                             linkInclinacao = '../assets/icones/placa_descendo.png'
                         }
                         
@@ -222,14 +224,15 @@ function buscarPistaCorrida(){
                                         <img src="${linkInclinacao}" alt="">
 
                                         <div id="img_clima">
+                                            <img src="../assets/imgs/chuva-pesada.png">
                                         </div>
                                     </div>
                                     <div>
-                                        <h3>${inclinacao}%</h3>
+                                        <h3>Inclinação: ${inclinacao}%
+                                        </h3>
 
                                         <select id="slt_clima" onchange="mudarClima()">
-                                            <option selected disabled>Selecione um clima</option>
-                                            <option>Chuva Forte</option>
+                                            <option selected>Chuva Forte</option>
                                             <option>Chuva</option>
                                             <option>Limpo</option>
                                         </select>
@@ -241,20 +244,23 @@ function buscarPistaCorrida(){
                                 </div>
 
                             </div>
-                            <div>
+                            <div class="condicao_perfil">
+                                <div class="box_corredores">
+                                    <img src="${fotoPerfil}" alt="">
 
-                            </div>
+                                    <img src="../assets/icones/bandeira-de-corrida.png" id="img_bandeira">
+                                    
+                                    <div id="img_corredor">
+                                    </div>
 
-                            <button></button>
+                                </div>
+                                <div>
+                                    <select id="slt_adversario" onchange="buscarFotoCorredor()">
 
-                            <div>
-                                <img src="" alt="">
+                                    </select>
+                                    
+                                </div>
                                 
-                                <img src="" alt="">
-
-                                <select name="" id="">
-
-                                </select>
                             </div>
                                             
                        `;
@@ -274,6 +280,66 @@ function buscarPistaCorrida(){
             }
         })   
 }
+
+function buscarFotoCorredor(){
+    let idCorredor = slt_adversario.value;
+
+    fetch(`/usuarios/buscarFoto/${idCorredor}`)
+        .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+
+                    img_corredor.innerHTML = `<img src="${dados[0].url_foto}">`;
+                })
+
+            }
+            
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+}
+
+function inserirSelect(){
+    let idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch("/usuarios/buscar/")
+        .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+                    if(dados.length > 0){
+                        let id = 0;
+                        let nome = '';
+                        
+                        for(let i = 0; i < dados.length - 1; i++){
+                            id = dados[i].id;
+                            nome = dados[i].nome;
+
+                            if(i == 0 && id != idUsuario){
+                                slt_adversario.innerHTML += `<option value="${id}" selected>${nome}</option>`;
+                                buscarFotoCorredor();
+                            }else if(id != idUsuario){
+                                slt_adversario.innerHTML += `<option value="${id}">${nome}</option>`;
+                            }
+                        }
+
+                    }else{
+                        
+                    }
+                });
+
+            }
+            
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+}
+
 
 
 function mudarClima(){

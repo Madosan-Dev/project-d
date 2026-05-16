@@ -900,8 +900,22 @@ body{
     justify-content: space-between;
 }
 
+.box_corrida img{
+    margin-bottom: 5vh;
+}
+.box_corrida select{
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+    text-align: center;
+    padding: 1vh;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 2vh;
+    font-size: 18px;
+    outline: none;
+}
+
 .box_corrida h3{
-    margin-left: 3vw;
     font-size: 2vh;
     color: var(--cor-texto);
 }
@@ -1003,4 +1017,28 @@ body{
 
 .box_corrida img{
     height: 15vh;
+}
+.condicao_perfil{
+    display: flex;
+    flex-direction: column;
+}
+
+.box_corredores{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.box_corredores img{
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    height: 40vh;
+    margin: 0 2vh 0 2vh;
+}
+
+#img_bandeira{
+    height: 20vh;
 }
