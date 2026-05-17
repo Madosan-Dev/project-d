@@ -872,9 +872,12 @@ body{
 #box_pistas{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
     padding: 20px;
-    height: 40vh;
+    height: 40vh auto;
+    width: 90%;
     border-radius: 20px;
     border: solid 2px var(--cor-texto);
 }
@@ -929,7 +932,8 @@ body{
     font-size: 2vh;
     margin-top: 10%;
     height: 5vh;
-    width: 30%;
+    width: 40%;
+    padding: 1vh;
     border-radius: 10px;
     transition: 0.5s;
     border: 1px solid var(--cor-texto);
@@ -1085,4 +1089,32 @@ body{
 
 #img_bandeira{
     height: 20vh;
+}
+
+/* Cadastro da Pista */
+
+.cadastro-pista{
+    background-image: url(imgs/pista_haruna_wallpaper.webp);
+    object-fit: center;
+    background-size: cover;
+}
+
+.campo_foto_carro{
+    height: 50vh;    
+}
+
+.campo.text{
+    height: 20vh;
+    padding: 1vh;
+}
+
+.campo textarea{
+    background-color: transparent;
+    height: 19vh;
+    width: 100%;
+    resize: none;
+    color: var(--cor-texto);
+    font-size: 2vh;
+    outline: none;
+    border: none;
 }

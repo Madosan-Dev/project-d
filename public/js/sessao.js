@@ -40,8 +40,9 @@ function validarSessaoAdmin(pagina) {
             pistas_container.innerHTML += `<div id="box_pistas">
                                     
                                     <div>
-                                        <p>Deseja cadastrar uma nova pista?</p> 
-                                        <button onclick="">Cadastrar</button>
+                                        <p>Deseja cadastrar uma nova pista?
+                                        <a href="../cadastrar_pista.html" ><button>Cadastrar</button></a>
+                                        </p> 
                                     </div>
                             `;
                             

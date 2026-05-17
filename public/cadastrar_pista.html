@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project D / Cadastro Carro</title>
+    <title>Project D / Cadastro pista</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="shortcut icon" href="assets/imgs/Project_d_icon.png" type="image/x-icon">
     <script src="./js/sessao.js"></script>
     <script src="js/validacoes.js"></script>
 </head>
 <body>
-    <main class="cadastro-carro">
+    <main class="cadastro-pista">
         <section class="container-cadastro-carro">
 
         <div id="container_foto">
@@ -28,43 +28,38 @@
         </div>
         <div id="container_campos">
             
-                <label for="ipt_marca">Marca do Carro</label>
-                <div class="campo" id="campo_marca">
-                    <img src="assets/icones/carro.png" alt="">
-                    <input type="text" id="ipt_marca" placeholder="Digite a Marca do Carro" oninput="verificarDigitarCad()">
+                <label for="ipt_pista">Nome da Pista</label>
+                <div class="campo" id="campo_pista">
+                    <input type="text" id="ipt_pista" placeholder="Digite o Nome da Pista" oninput="verificarDigitarCad()">
                 </div>
-                <label for="ipt_modelo">Modelo do Carro</label>
-                <div class="campo" id="campo_modelo">
-                    <img src="assets/icones/carro.png" alt="">
-                    <input type="text" id="ipt_modelo" placeholder="Digite o Modelo do Carro" oninput="verificarDigitarCad()">
+                <label for="ipt_modelo">Descricao</label>
+                <div class="campo text" id="campo_descricao">
+                    <textarea id="txt_descricao" placeholder="Digite a Descrição da Pista" maxlength="255">
+
+                    </textarea>
                 </div>
                 <p id="msg_email"></p>
-                <label for="ipt_potencia">Potência</label>
-                <div class="campo" id="campo_potencia">
-                    <img src="assets/icones/motor.png" alt="">
-                    <input type="text" id="ipt_potencia" placeholder="Digite a potência do Carro" maxlength="6" oninput="mascaraCavalo();verificarDigitarCad()">
+                <label for="ipt_inclinacao">Inclinação</label>
+                <div class="campo" id="campo_inclinacao">
+                    <input type="text" id="ipt_inclinacao" placeholder="Digite a inclinação" maxlength="6" oninput="verificarDigitarCad()">
                 </div>
-                <label for="ipt_peso">Peso</label>
-                <div class="campo" id="campo_peso">
-                    <img src="assets/icones/motor.png" alt="">
-                    <input type="text" id="ipt_peso" placeholder="Digite o peso do Carro" maxlength="6" oninput="mascaraCavalo();verificarDigitarCad()">
-                </div>
-                <label for="ipt_tracao">Tração</label>
-                <div class="campo" id="campo_tracao">
-                    <img src="assets/icones/eixo.png" alt="">
+                <label for="ipt_sentido_inclinacao">Sentido da Inclinação</label>
+                <div class="campo" id="campo_sentido_inclinacao">
                     <select id="slt_tracao" onchange="verificarDigitarCad()">
-                        <option value="nulo" disabled selected>Escolha a tração</option>
-                        <option value="FR">Traseira</option>
-                        <option value="FF">Fronteira</option>
-                        <option value="AWD">Integral</option>
+                        <option value="nulo" disabled selected>Escolha o sentido</option>
+                        <option value="Subida">Subida</option>
+                        <option value="Descida">Descida</option>
                     </select>
                 </div>
                 <div id="div_mensagem">
                 </div>
-                <button onclick="cadastrarCarro()">Cadastrar</button>
+                <button onclick="cadastrarPista()">Cadastrar</button>
                 
         </div>
         </section>
     </main>
 </body>
 </html>
+<script>
+     validarSessaoAdmin();
+</script>
