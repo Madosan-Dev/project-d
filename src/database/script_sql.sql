@@ -53,6 +53,7 @@ CREATE TABLE pista(
     nome VARCHAR(100) NOT NULL,
     descricao VARCHAR(255) NOT NULL,
     inclinacao DECIMAL(3,1),
+	tempo TIME NOT NULL,
     sentido_inclinacao VARCHAR(20),
 	CONSTRAINT ch_sentido_inclinacao
 		CHECK(sentido_inclinacao IN ('Subida', 'Descida'))
@@ -108,12 +109,11 @@ CREATE TABLE historico_corrida(
 	UNIQUE(numero, corrida_id)
 );
 
-
 -- Criando usuario admin conforme a regra de négocio, Ryosuke takahashi
 -- mude a id para deixar para o usuario ryosuke ser o admin
 UPDATE usuario SET tipo_usuario = 'admin'
 	WHERE id = '5';
-    
+
 
 SELECT * FROM usuario;
 
@@ -122,3 +122,6 @@ SELECT * FROM pneu;
 SELECT * FROM carro;
 
 SELECT * FROM pista;
+
+
+
