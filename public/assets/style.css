@@ -1108,6 +1108,14 @@ body{
     padding: 1vh;
 }
 
+#slt_sentido_inclinacao{
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+    margin-left: 10px;
+    font-size: 18px;
+    width: 380px;
+}
+
 .campo textarea{
     background-color: transparent;
     height: 19vh;

@@ -78,6 +78,8 @@ function validarSessaoAdmin(pagina) {
                 <a href="garagem.html" class="active">Garagem</a>
                 <a onclick="abrirMenu()">Sair</a>`;
         }
+    }else if(pagina == 'cadPista'){
+        window.location = "../login.html";
     }
 }
 

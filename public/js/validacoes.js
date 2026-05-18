@@ -422,6 +422,116 @@ function verificarDigitarCad(){
     
 }
 
+function verificarDigitarPista(){
+    let link = url_foto.value;
+    let pista = ipt_pista.value;
+    let descricao = txt_descricao.value;
+    let inclinacao = ipt_inclinacao.value;
+    let tempo = ipt_tempo.value;
+    let sentidoIncli = slt_sentido_inclinacao.value;
+
+    if(link != ''){
+        campo_url.classList.remove('shake');
+    }
+    if(pista != ''){
+        campo_pista.classList.remove('shake');
+    }
+    if(descricao != ''){
+        campo_descricao.classList.remove('shake');
+    }
+    if(inclinacao != ''){
+        campo_inclinacao.classList.remove('shake');
+    }
+    if(tempo != ''){
+        campo_tempo.classList.remove('shake');
+    }
+    if(sentidoIncli != 'nulo'){
+        campo_sentido_inclinacao.classList.remove('shake')
+    }
+
+    
+}
+
+function cadastrarPista(){
+    let link = url_foto.value;
+    let pista = ipt_pista.value;
+    let descricao = txt_descricao.value;
+    let inclinacao = ipt_inclinacao.value;
+    let tempo = ipt_tempo.value;
+    let sentidoIncli = slt_sentido_inclinacao.value;
+
+    if(link == ''){
+        campo_url.classList.add('shake');
+    }
+    if(pista == ''){
+        campo_pista.classList.add('shake');
+    }
+    if(descricao == ''){
+        campo_descricao.classList.add('shake');
+    }
+    if(inclinacao == ''){
+        campo_inclinacao.classList.add('shake');
+    }
+    if(tempo == ''){
+        campo_tempo.classList.add('shake');
+    }
+    if(sentidoIncli == 'nulo'){
+        campo_sentido_inclinacao.classList.add('shake')
+    }
+
+    if(
+        link == '' ||
+        pista == '' ||
+        descricao == '' ||
+        inclinacao == '' ||
+        tempo == '' ||
+        sentidoIncli == ''
+    ){
+        div_mensagem.innerHTML = `<p class="erro">Preencha Todos os campos!</p>`;
+        return false;
+    }
+
+
+      fetch("/pistas/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                linkServer: link,
+                pistaServer: pista,
+                descricaoServer: descricao,
+                inclinacaoServer: inclinacao,
+                tempoServer: tempo,
+                sentidoServer: sentidoIncli
+            }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+               div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com Sucesso! <br> Redirecionando para a garagem...</p>`;
+
+                setTimeout(() => {
+                    window.location = "./dashboard/pistas.html";
+                }, "2000");
+
+                finalizarAguardar();
+                } else {
+                throw "Houve um erro ao tentar realizar o cadastro da pista!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+
+    
+}
+
 function mudarFotoDesc(){
     let pneu = slt_pneu.value;
 
