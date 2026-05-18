@@ -11,6 +11,20 @@ function buscarPistas(){
     return database.executar(instrucaoSql);
 }
 
+function cadastrar(link,pista,descricao,inclinacao,tempo,sentido){
+    console.log("ACESSEI o PISTA MODEL");
+
+    let instrucaoSql = `
+        INSERT INTO pista 
+        (url_foto,nome,descricao,inclinacao,tempo,sentido_inclinacao)
+        VALUES
+        ('${link}','${pista}','${descricao}',${inclinacao},'${tempo}','${sentido}');
+    `;
+
+    console.log(`EXECUTANDO INSTRUÇÃO SQL: \n ${instrucaoSql}`);
+    return database.executar(instrucaoSql);
+}
+
 function buscar(id){
     console.log("ACESSEI O PISTA MODEL");
 
@@ -24,5 +38,6 @@ function buscar(id){
 
 module.exports = {
     buscarPistas,
-    buscar
+    buscar,
+    cadastrar
 }
