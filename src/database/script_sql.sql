@@ -123,5 +123,3 @@ SELECT * FROM carro;
 
 SELECT * FROM pista;
 
-
-

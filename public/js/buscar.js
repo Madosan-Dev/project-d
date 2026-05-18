@@ -326,16 +326,17 @@ function inserirSelect(){
                         let id = 0;
                         let nome = '';
                         
-                        for(let i = 0; i < dados.length - 1; i++){
+                        for(let i = 0; i < dados.length; i++){
+                            console.log(dados);
                             id = dados[i].id;
                             nome = dados[i].nome;
-
-                            if(i == 0 && id != idUsuario){
-                                slt_adversario.innerHTML += `<option value="${id}" selected>${nome}</option>`;
-                                buscarFotoCorredor();
-                            }else if(id != idUsuario){
+                            
+                        
+                            if(id != idUsuario){
                                 slt_adversario.innerHTML += `<option value="${id}">${nome}</option>`;
+                                buscarFotoCorredor();
                             }
+                            console.log(i);
                         }
 
                     }else{
