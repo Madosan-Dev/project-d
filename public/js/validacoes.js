@@ -513,7 +513,7 @@ function cadastrarPista(){
 
                 if (resposta.ok) {
 
-               div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com Sucesso! <br> Redirecionando para a garagem...</p>`;
+               div_mensagem.innerHTML = `<p class="sucesso">Cadastro Realizado com Sucesso! <br> Redirecionando para as pistas...</p>`;
 
                 setTimeout(() => {
                     window.location = "./dashboard/pistas.html";
