@@ -12,3 +12,9 @@ function fecharMenuPneu(){
     document.getElementById('tela_pneu').style.display = 'none';
 }
 
+function abrirMenuCarro(){
+    document.getElementById('tela_carro').style.display = 'flex';
+}
+
+
+

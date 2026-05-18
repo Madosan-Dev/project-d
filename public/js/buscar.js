@@ -366,8 +366,10 @@ function mudarClima(){
 }
 
 function buscarPneu(){
+    
     let idCarro = sessionStorage.ID_CARRO;
-
+    
+    
     fetch(`/pneus/buscar/${idCarro}`)
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
@@ -484,9 +486,10 @@ function buscarDashboardProbabilidade(){
                 resposta.json().then(function (dados){
                     if(dados.length > 0){
                         idCarro = dados[0].id;
-                        cavalos = dados[0].cavalos;
+                        cv = dados[0].cavalos;
                         peso = dados[0].peso;
                         sessionStorage.ID_CARRO = idCarro;
+
                         
                         fetch(`/pneus/buscar/${idCarro}`)
                         .then(function (resposta) {
@@ -499,25 +502,26 @@ function buscarDashboardProbabilidade(){
                                         for(let i = 0; i < dados.length; i++){
                                             pneus.push(dados[i].condicao_pneu);
                                         }
-                                                
-                                                    let infoGrafico = probabilidadeGrafico(sentidoIncli,pneus,cv,peso);
-                            
-                                                    corridaDashboard(infoGrafico);
-                                                    buscarPneu();
-                                                }
-                                                
-                                            });
-                                        } else {
-                                        throw "Houve um erro ao buscar os dados!";
-                                        }
-                                    })
-                                    .catch(function (resposta) {
-                                        console.log(`#ERRO: ${resposta}`);
-                                        finalizarAguardar();
+                                        
+                                        let infoGrafico = probabilidadeGrafico(sentidoIncli,pneus,cv,peso);
+                                        
+                                        corridaDashboard(infoGrafico);
+                                        buscarPneu();
+                                    }
+                                    
+                                });
+                            } else {
+                                throw "Houve um erro ao buscar os dados!";
+                            }
+                        })
+                        .catch(function (resposta) {
+                            console.log(`#ERRO: ${resposta}`);
+                            finalizarAguardar();
                         });
-
-
+                        
+                        
                     }else{
+                        verificarCarro();
                         
                     }
                 });
@@ -529,7 +533,5 @@ function buscarDashboardProbabilidade(){
                 finalizarAguardar();
         });
 
-
-    
 
 }

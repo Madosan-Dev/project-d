@@ -79,10 +79,9 @@ function validarSessaoAdmin(pagina) {
                 <a onclick="abrirMenu()">Sair</a>`;
         }
     }else if(pagina == 'cadPista'){
-        window.location = "../login.html";
+        window.location = "/dashboard/perfil.html";
     }
 }
-
 
 function verificarLogado(){
     const btnLog = document.getElementById('btn_login');
@@ -101,6 +100,17 @@ function verificarLogado(){
         btns.innerHTML += `<a onclick="limparSessao()">Sair</a>`;
     }
 
+}
+
+function verificarCarro(){
+    let idCarro = sessionStorage.ID_CARRO
+
+    if(idCarro == undefined){        
+        abrirMenuCarro();
+        setTimeout(() => {
+            window.location = "./garagem.html";
+        }, "2000");
+    }
 }
 
 function inserirFoto(){
