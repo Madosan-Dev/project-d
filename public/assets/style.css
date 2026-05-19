@@ -510,6 +510,18 @@ body{
     flex-direction: row;
     width: 100%;
 }
+
+.container_mensagem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+.container_mensagem p{
+    font-size: 4vh;
+    color: var(--cor-texto);
+}
+
 .campo_foto.perfil{
     height: 40vh;
     width: 20vw;
@@ -554,6 +566,7 @@ body{
     background-color: var(--cor-botao);
     color: var(--cor-texto);
 }
+
 
 .container-nome button:hover{
     background-color: var(--cor-texto);

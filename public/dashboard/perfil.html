@@ -39,6 +39,9 @@
                 <div id="div_mensagem"></div>
             </div>
         </div>
+        <div class="container_mensagem" id="div_erro">
+        
+        </div>
         <div class="container_grafico_perfil">
             <canvas id="perfil_corrida"></canvas>
             <canvas id="perfil_pista"></canvas>
@@ -60,7 +63,7 @@
 <script>
     validarSessaoPerfil();
     inserirFoto();
-    perfilDashboard();
+    obterDadosCorredor();
     buscarDescricao();
     validarSessaoAdmin('perfil')
 </script>

@@ -40,8 +40,45 @@ function corridaDashboard(infoGrafico){
     });
 }
 
+function obterDadosCorredor(){
+  let idUsuario = sessionStorage.ID_USUARIO;
 
-function perfilDashboard(){
+  fetch(`/graficos/buscarCorridas/${idUsuario}`,)
+       .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+                  if(dados.length > 0){
+                    let ganhou = 0;
+                    let perdeu = 0;
+                    
+                    for(let i = 0; i < dados.lenght;i++){
+                      if(dados[i].ganhador == 1){
+                        ganhou++;
+                      }else{
+                        perdeu++;
+                      }
+                    }
+
+                    perfilDashboard(ganhou,perdeu);
+                  }else{
+                    console.log("não passei do dados")
+                    div_erro.innerHTML = `<p>Você ainda não correu em nenhuma corrida!<p>`;
+                  }
+                  
+                })
+
+            }
+            
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+}
+
+
+function perfilDashboard(ganhou,perdeu){
     const graficoPizza = document.getElementById('perfil_corrida');
     const graficoPista = document.getElementById('perfil_pista')
 
@@ -50,7 +87,7 @@ function perfilDashboard(){
       data: {
         labels: ['Ganhou', 'Perdeu'],
         datasets: [{
-          data: [20,10],
+          data: [ganhou,perdeu],
           backgroundColor: [
                 '#4a7ff7', 
                 '#FFC107' 
