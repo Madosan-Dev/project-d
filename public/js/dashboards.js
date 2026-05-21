@@ -48,11 +48,14 @@ function obterDadosCorredor(){
             console.log("resposta: ", resposta);
 
             if(resposta.ok){
-                resposta.json().then(function (dados){
+              resposta.json().then(function (dados){
+                let ganhou = 10;
+                let perdeu = 2;
+                perfilDashboard(ganhou,perdeu);
+                kpiPerfil();
                   if(dados.length > 0){
-                    let ganhou = 0;
-                    let perdeu = 0;
                     
+
                     for(let i = 0; i < dados.lenght;i++){
                       if(dados[i].ganhador == 1){
                         ganhou++;
@@ -61,10 +64,9 @@ function obterDadosCorredor(){
                       }
                     }
 
-                    perfilDashboard(ganhou,perdeu);
                   }else{
-                    console.log("não passei do dados")
-                    div_erro.innerHTML = `<p>Você ainda não correu em nenhuma corrida!<p>`;
+                    // console.log("não passei do dados")
+                    // div_erro.innerHTML = `<p>Você ainda não correu em nenhuma corrida!<p>`;
                   }
                   
                 })
@@ -75,6 +77,23 @@ function obterDadosCorredor(){
                 console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
         });
+}
+
+function kpiPerfil(){
+  kpi_grafico.innerHTML = `
+      <div>
+        <p>Taxa de Vitoria </p>
+        <p id="taxaVitoria"></p>
+      </div>
+      <div>
+        <p>Média da saúde dos Pneus</p>
+        <p id="saudePneu"></p>  
+      </div>
+      <div>
+        <p>Montanha mais desafiadora</p>
+        <p id="montanhaDesa"></p>
+      </div>
+  `;
 }
 
 
