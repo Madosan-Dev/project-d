@@ -46,3 +46,29 @@ function probabilidadeGrafico(sentidoIncli,pneus,cv,peso){
     return [vencer,desvantagem,acidente];
 
 }
+
+function probabilidadeCorrida(){
+    let clima = slt_clima.value;
+    let idAdversario = slt_adversaio.value;
+    let idJogador = sessionStorage.ID_USUARIO;
+    let mensagem = '';
+
+    let dadosAdversario = buscarUsuarioCarro(idAdversario);
+    let dadosJogador = buscarUsuarioCarro(idJogador);
+
+    // Dados do Adversario
+    let nomeAdversario = dadosAdversario.nome;
+    let cvAdversario = dadosAdversario.cv;
+    let pesoAdversario = dadosAdversario.peso;
+    let tracaoAdversario = dadosAdversario.tracao;
+
+    // Dados do Jogador
+    let nomeJogador = dadosJogador.nome;
+    let cvJogador = dadosJogador.cv;
+    let pesoJogador = dadosJogador.peso;
+    let tracaoJogador = dadosJogador.tracao;
+
+    if(clima == 'Chuva Forte' ){
+
+    }
+}

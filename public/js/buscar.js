@@ -536,3 +536,53 @@ function buscarDashboardProbabilidade(){
 
 
 }
+
+function buscarUsuarioCarro(id){
+
+     fetch(`/usuarios/buscar/corredor/${id}`)
+        .then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                resposta.json().then(function (dados){
+                    if(dados.length > 0){
+                        
+                        fetch(`/pneus/buscar/${idCarro}`)
+                        .then(function (resposta) {
+                            console.log("resposta: ", resposta);
+                            
+                            if (resposta.ok) {
+                                resposta.json().then(function (dados){
+                                    
+                                    if(dados.length > 0){
+                                        return dados;
+                                    }else{
+                                        return false;
+                                    }
+                                    
+                                });
+                            } else {
+                                throw "Houve um erro ao buscar os dados!";
+                            }
+                        })
+                        .catch(function (resposta) {
+                            console.log(`#ERRO: ${resposta}`);
+                            finalizarAguardar();
+                        });
+                        
+                        
+                    }else{
+                        verificarCarro();
+                        
+                    }
+                });
+
+            }
+            
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+        });
+    
+    
+}
