@@ -16,6 +16,10 @@ router.get("/buscarDescricao/:idUsuario", function (req,res){
     usuarioController.buscarDescricao(req,res);
 });
 
+router.get("/buscar/corredor/:id", function (req,res){
+    usuarioController.buscarCorredorId(req,res);
+});
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });

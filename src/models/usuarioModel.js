@@ -76,11 +76,31 @@ function buscarCorredores(){
     return database.executar(instrucaoSql);
 }
 
+function buscarCorredorId(id){
+    console.log("ACESSEI O USUARIO MODEL");
+
+    let instrucaoSql = `
+        SELECT
+            u.nome AS nome,
+            c.cavalos AS cv,
+            c.tracao AS tracao,
+            c.peso AS peso
+        FROM
+            usuario u
+        JOIN
+            carro c ON c.fk_usuario = u.id;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     atualizarDescricao,
     buscarDescricao,
     buscarFotoCorredor,
-    buscarCorredores
+    buscarCorredores,
+    buscarCorredorId
 };

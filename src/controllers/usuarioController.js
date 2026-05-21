@@ -173,6 +173,30 @@ function buscarCorredores(req,res){
 }
 
 
+function buscarCorredorId(req,res){
+    let id = req.params.id;
+
+    if(id == undefined){
+        res.status(200).send("O id está undefined");
+    }else{
+        usuarioModel.buscarCorredorId(id)
+            .then(
+                function (resultado){
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro){
+                    console.log(erro);
+                   console.log(
+                        "\nHouve um erro ao buscar o corredor! Erro: ",
+                         erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            )
+    }
+}
+
 
 
 
@@ -182,5 +206,6 @@ module.exports = {
     atualizarDescricao,
     buscarDescricao,
     buscarFotoCorredor,
-    buscarCorredores
+    buscarCorredores,
+    buscarCorredorId
 }
